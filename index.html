@@ -574,6 +574,33 @@
       letter-spacing: var(--letter-spacing-body);
     }
 
+    /* LOW OPACITY STYLING FOR FUTURE / ROADMAP / PARTIALLY IMPLEMENTED ITEMS */
+    .item-future-roadmap {
+      opacity: 0.52 !important;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      position: relative;
+    }
+    .item-future-roadmap:hover {
+      opacity: 0.88 !important;
+      transform: translateY(-2px);
+    }
+    .badge-future-roadmap {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #F1F5F9;
+      color: #64748B;
+      border: 1px dashed #94A3B8;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+
     /* COMPARISON TABLE */
     .table-container-modern {
       background: #FFFFFF;
@@ -1169,8 +1196,8 @@
             </div>
             <ul class="swot-list">
               <li>• <strong>Abans 400+ Showrooms:</strong> Immediate nationwide scale across retail & e-commerce.</li>
-              <li>• <strong>Smart TVs & Android OS:</strong> Extending device lock technology to any Smart TV or Android OS device.</li>
-              <li>• <strong>LankaPay Direct Debit:</strong> Automated recurring deduction via CEFT & JustPay.</li>
+              <li class="item-future-roadmap">• <strong>Smart TVs & Android OS:</strong> Extending lock tech to any Smart TV or Android OS device. <span class="badge-future-roadmap">Upcoming</span></li>
+              <li class="item-future-roadmap">• <strong>LankaPay Direct Debit:</strong> Automated recurring deduction via CEFT & JustPay. <span class="badge-future-roadmap">Upcoming</span></li>
             </ul>
           </div>
 
@@ -1232,13 +1259,15 @@
               </div>
             </div>
 
-            <div class="interactive-card" onclick="openPointExplainer('dashboard_roles')" style="background: #FFFFFF; border: 1.5px solid var(--abans-red-border); border-radius: 12px; padding: 12px 16px;">
+            <div class="interactive-card item-future-roadmap" onclick="openPointExplainer('dashboard_roles')" style="background: #F8FAFC; border: 1.5px dashed #94A3B8; border-radius: 12px; padding: 12px 16px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--abans-red);">3. Multi-Branch Roles</div>
+                <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--text-dim);">
+                  3. Multi-Branch Roles <span class="badge-future-roadmap">Future Upgrade</span>
+                </div>
                 <span class="mini-float-badge">Deep Dive ↗</span>
               </div>
-              <div style="font-size: 18px; color: var(--text-muted); line-height: 1.52; font-weight: 500;">
-                Role-based access separating Abans Headquarters risk supervisors from individual branch cashiers.
+              <div style="font-size: 17px; color: var(--text-muted); line-height: 1.52; font-weight: 500;">
+                <em>Not implemented at all in baseline.</em> Can be custom-developed in future upgrades or based on Abans operational requirements.
               </div>
             </div>
           </div>
@@ -1552,11 +1581,11 @@
               <span class="mini-float-badge">Deep Dive ↗</span>
             </div>
             <div style="font-size: 17.5px; line-height: 1.52; color: var(--text-muted); font-weight: 500;">
-              • LankaPay / CEFT / JustPay<br />
               • Dialog, Mobitel, Hutch SMS<br />
               • WhatsApp Cloud Business API<br />
-              • Abans SAP / Oracle POS Sync<br />
-              • Sri Lanka PDPA Compliance
+              • Sri Lanka PDPA Compliance<br />
+              <span class="item-future-roadmap" style="display: inline-block;">• LankaPay / CEFT / JustPay <span class="badge-future-roadmap">Upcoming</span></span><br />
+              <span class="item-future-roadmap" style="display: inline-block;">• Abans SAP / Oracle POS Sync <span class="badge-future-roadmap">Roadmap</span></span>
             </div>
           </div>
         </div>
@@ -1764,12 +1793,12 @@
             </div>
           </div>
 
-          <div class="interactive-card" onclick="openPointExplainer('roadmap_p2')" style="background: #FFFFFF; border: 1.5px solid var(--amber-light); border-top: 4px solid var(--amber-gold); border-radius: 14px; padding: 16px;">
+          <div class="interactive-card" onclick="openPointExplainer('roadmap_p2')" style="background: #FFFFFF; border: 1.5px solid var(--amber-light); border-top: 4px solid var(--amber-gold); border-radius: 14px; padding: 16px; opacity: 0.75;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
               <span class="pill-tag pill-amber" style="margin: 0;">Phase 2 · Weeks 4–7</span>
               <span class="mini-float-badge">Deep Dive ↗</span>
             </div>
-            <div style="font-family: var(--font-heading); font-size: 21px; font-weight: 800; color: var(--text-title); margin: 6px 0 2px 0;">Regional Expansion</div>
+            <div style="font-family: var(--font-heading); font-size: 21px; font-weight: 800; color: var(--text-title); margin: 6px 0 2px 0;">Regional Expansion <span class="badge-future-roadmap">Upcoming</span></div>
             <div style="font-size: 17.5px; line-height: 1.52; color: var(--text-muted); font-weight: 500;">
               <strong>Scope:</strong> 80+ Major City Showrooms (Kandy, Galle, Kurunegala, Jaffna).<br /><br />
               • Regional manager delegation.<br />
@@ -1778,12 +1807,12 @@
             </div>
           </div>
 
-          <div class="interactive-card" onclick="openPointExplainer('roadmap_p3')" style="background: #FFFFFF; border: 1.5px solid var(--abans-red-border); border-top: 4px solid var(--abans-red); border-radius: 14px; padding: 16px;">
+          <div class="interactive-card item-future-roadmap" onclick="openPointExplainer('roadmap_p3')" style="background: #FFFFFF; border: 1.5px dashed var(--abans-red-border); border-top: 4px solid #CBD5E1; border-radius: 14px; padding: 16px;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
               <span class="pill-tag pill-red" style="margin: 0;">Phase 3 · Weeks 8+</span>
               <span class="mini-float-badge">Deep Dive ↗</span>
             </div>
-            <div style="font-family: var(--font-heading); font-size: 21px; font-weight: 800; color: var(--text-title); margin: 6px 0 2px 0;">Nationwide Fleet</div>
+            <div style="font-family: var(--font-heading); font-size: 21px; font-weight: 800; color: var(--text-dim); margin: 6px 0 2px 0;">Nationwide Fleet <span class="badge-future-roadmap">Future Roadmap</span></div>
             <div style="font-size: 17.5px; line-height: 1.52; color: var(--text-muted); font-weight: 500;">
               <strong>Scope:</strong> Full 400+ Showrooms & Sub-Dealers.<br /><br />
               • Extension to Smart TVs & Android OS devices.<br />
@@ -2113,15 +2142,15 @@
         impact: "⚡ Abans Management: Effortlessly oversee thousands of financed devices nationwide while respecting end-user privacy."
       },
       dashboard_roles: {
-        category: "ACCESS CONTROL",
-        title: "Multi-Tier Role-Based Permissions",
-        svg: `<svg viewBox="0 0 200 160" fill="none"><circle cx="100" cy="55" r="22" fill="#FEF2F2" stroke="#E11925" stroke-width="3"/><path d="M70 115 C70 95 85 90 100 90 C115 90 130 95 130 115 Z" fill="#E11925"/><rect x="135" y="90" width="35" height="25" rx="4" fill="#3A72F7"/></svg>`,
+        category: "FUTURE UPGRADE",
+        title: "Multi-Branch Roles (Not Implemented - Future Upgrade)",
+        svg: `<svg viewBox="0 0 200 160" fill="none"><circle cx="100" cy="55" r="22" fill="#F1F5F9" stroke="#94A3B8" stroke-width="3" stroke-dasharray="4 4"/><path d="M70 115 C70 95 85 90 100 90 C115 90 130 95 130 115 Z" fill="#E2E8F0"/><rect x="135" y="90" width="35" height="25" rx="4" fill="#CBD5E1"/></svg>`,
         points: [
-          "• <strong>Head Office Risk Officers:</strong> Set portfolio terms, review nationwide metrics, and export audits.",
-          "• <strong>Branch Showroom Managers:</strong> Manage local store customer plans and oversee branch collection metrics.",
-          "• <strong>Counter Cashiers:</strong> Onboard new buyers and record installment payments in seconds."
+          "<div style=\"opacity: 0.85;\">• <strong>Not Implemented at All:</strong> Multi-branch hierarchical role management is not implemented in the current system baseline.</div>",
+          "<div style=\"opacity: 0.85;\">• <strong>Future Upgrade on Requirement:</strong> Can be custom-developed and deployed in future upgrades based on Abans specific corporate branch hierarchy requirements.</div>",
+          "<div style=\"opacity: 0.85;\">• <strong>Planned Architecture:</strong> Granular privilege tiering separating Head Office Risk Officers, Regional Supervisors, and Showroom Cashiers.</div>"
         ],
-        impact: "⚡ Abans Security: Prevents unauthorized unlocks, employee errors, or internal tampering."
+        impact: "⚡ Future Upgrade: Ready to be engineered based on Abans Finance branch operational workflow requirements."
       },
       pos_workflow: {
         category: "EASY ONBOARDING",
