@@ -1,4 +1,4 @@
-# Abans Finance × Instalpay.lk — Executive Keynote Deck
+# Abans Finance + Instalpay.lk — Executive Keynote Deck
 
 > **Interactive Executive Keynote & Pitch Deck** presenting the smart device financing and automated lock management platform co-architected for **Abans Finance** powered by **Instalpay.lk**.
 
@@ -50,21 +50,21 @@ start index.html
 
 ## 📂 Slide Deck Structure (15 Keynote Slides)
 
-1. **Executive Vision**: Core value proposition & stage metrics (`<1.5%` NPL, `<30s` unlock, `30d` clock)
-2. **5W Strategic Blueprint**: Who, What, Where, When, and Why for Abans Finance
-3. **Comprehensive SWOT Analysis**: 4-quadrant strategic matrix (Strengths, Weaknesses, Opportunities, Threats)
-4. **Live Software Demo 1**: Executive Backoffice Dashboard (92% collections gauge, fleet status)
-5. **Live Software Demo 2**: Showroom POS (Customer KYC & IMEI setup in 60s)
-6. **Live Software Demo 3**: Hardware Enforcement (Active, Locked, and Sub-30s Auto-Unlock)
-7. **Live Software Demo 4**: Installments Ledger & Remote Fleet Manager
-8. **Competitive Benchmark**: Instalpay.lk vs Snap Pay vs Cool Pay (7 critical dimensions)
-9. **Unfair Advantages**: 6 proprietary innovations in hand
-10. **Enterprise Tech Stack**: Kotlin DPC, Samsung Knox SDK, Next.js 14, Node.js, PostgreSQL, AWS
-11. **Support Services & SLA**: 24/7 Colombo NOC, showroom training kits, 99.9% uptime
-12. **Interactive Escalation Simulator**: Real-time state toggling (Normal → Warning → Restricted → Locked)
-13. **Interactive Abans ROI Calculator**: Custom financial modeling for bad debt reduction
-14. **Showroom Rollout Roadmap**: 3-Phase structured execution plan (Flagship → Regional → Nationwide)
-15. **Executive Q&A & Video Showcase**: Integrated live hardware video demonstration player
+1. **Executive Vision**: Financing Smartphones with Confidence: `Abans Finance + Instalpay.lk`
+2. **5W Strategy**: How It Works for Abans Finance (Who, What, Where, When, Why)
+3. **Strategic Audit**: SWOT Analysis (Internal defensibility and market opportunities)
+4. **Live Demo 1**: Collections & Fleet Dashboard (92% collections target gauge, fleet status)
+5. **Live Demo 2**: 60-Second Customer & IMEI Setup (Counter unboxing & guarantor safeguarding)
+6. **Live Demo 3**: Phone Lock & Sub-30s Auto Unlock (Real-time device states & clearance)
+7. **Live Demo 4**: Installments Ledger & Fleet Manager (Account dues & remote unlock controls)
+8. **Market Comparison**: Instalpay.lk vs Snap Pay & Cool Pay (7 critical dimensions)
+9. **Unfair Advantages**: 6 Key Capabilities In Hand
+10. **Enterprise Tech Stack**: Android DPC & Cloud Infrastructure
+11. **Operations & Support**: 24/7 SLA for 400+ Showrooms
+12. **Live Simulator**: 3-Tier Customer Device Escalation (Interactive hands-on widget)
+13. **Financial Returns**: Abans Bad Debt & ROI Calculator (Dynamic profit modeling)
+14. **Rollout Plan**: Colombo Pilot to 400+ Showrooms (3-Phase low-risk roadmap)
+15. **Executive Summary**: Abans Finance + Instalpay.lk: Zero Bad Debt, Scaled Sales
 
 ---
 
