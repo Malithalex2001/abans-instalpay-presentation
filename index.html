@@ -981,6 +981,89 @@
       margin: 0 auto;
       background: #020617;
     }
+
+    /* Google Translate Language Switcher & Clean Framing */
+    .lang-switcher-pill {
+      display: inline-flex;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 4px;
+      gap: 2px;
+      box-shadow: var(--shadow-sm);
+      margin-right: 4px;
+      transition: all 0.2s ease;
+    }
+    .lang-switcher-pill:hover {
+      border-color: var(--blue-border);
+      box-shadow: 0 2px 8px rgba(58, 114, 247, 0.14);
+    }
+    .lang-globe-icon {
+      color: var(--blue-primary);
+      margin: 0 3px 0 5px;
+      flex-shrink: 0;
+    }
+    .lang-opt-btn {
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      padding: 3px 8px;
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      outline: none;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .lang-opt-btn:hover {
+      color: var(--blue-primary);
+      background: var(--blue-light);
+    }
+    .lang-opt-btn.active {
+      background: var(--blue-primary) !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 1px 4px rgba(58, 114, 247, 0.35);
+    }
+
+    /* Google Translate Layout Protection (Keep Stage 100vh Zero-Scroll) */
+    .goog-te-banner-frame.skiptranslate,
+    .goog-te-banner-frame {
+      display: none !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      opacity: 0 !important;
+    }
+    body {
+      top: 0px !important;
+      position: static !important;
+    }
+    #google_translate_element {
+      position: absolute !important;
+      left: -9999px !important;
+      top: -9999px !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    .goog-te-gadget,
+    .goog-tooltip,
+    .goog-tooltip:hover {
+      display: none !important;
+    }
+    .goog-text-highlight {
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+    #goog-gt-tt {
+      display: none !important;
+      visibility: hidden !important;
+    }
   </style>
 </head>
 <body>
@@ -994,7 +1077,7 @@
     
     <!-- Slide Header -->
     <header class="slide-header">
-      <div class="brand-hub">
+      <div class="brand-hub notranslate">
         <!-- EXACT ABANS LOGO -->
         <div class="logo-abans-badge">
           <span class="logo-abans-text">ABANS</span>
@@ -1011,12 +1094,24 @@
         </div>
       </div>
 
-      <div class="header-center-pill">
+      <div class="header-center-pill notranslate">
         <i data-lucide="shield-check" style="width: 14px; height: 14px; color: var(--blue-primary);"></i>
         SMART DEVICE FINANCING & LOCK SUITE
       </div>
 
       <div class="header-actions">
+        <!-- Google Translate Language Selector (English, Sinhala, Tamil) -->
+        <div class="lang-switcher-pill notranslate" id="lang-switcher" title="Change Language / භාෂාව / மொழி">
+          <svg class="lang-globe-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <button class="lang-opt-btn active" id="btn-lang-en" onclick="translatePresentation('en')" title="English (Default)">EN</button>
+          <button class="lang-opt-btn" id="btn-lang-si" onclick="translatePresentation('si')" title="සිංහල (Sinhala)">සිංහල</button>
+          <button class="lang-opt-btn" id="btn-lang-ta" onclick="translatePresentation('ta')" title="தமிழ் (Tamil)">தமிழ்</button>
+        </div>
+
         <button class="action-btn" id="btn-grid" title="Slide Overview (G)">
           <i data-lucide="layout-grid" style="width: 16px; height: 16px;"></i>
         </button>
@@ -2576,10 +2671,81 @@
       document.getElementById('calc-roi').innerText = `${roiMultiple.toFixed(1)}x`;
     }
 
+    // Google Translate Controller (English, Sinhala, Tamil)
+    function translatePresentation(langCode) {
+      // 1. Update UI active button states
+      document.querySelectorAll('.lang-opt-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('btn-lang-' + langCode);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // 2. Set google translation cookie for persistence across slide navigation
+      const hostname = window.location.hostname;
+      const cookieValue = (langCode === 'en') ? '/en/en' : ('/en/' + langCode);
+      
+      // Clear legacy/stale cookies
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      if (hostname) {
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + hostname + ";";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + hostname + ";";
+      }
+
+      // Write current language choice
+      document.cookie = "googtrans=" + cookieValue + "; path=/;";
+      if (hostname) {
+        document.cookie = "googtrans=" + cookieValue + "; path=/; domain=" + hostname + ";";
+        document.cookie = "googtrans=" + cookieValue + "; path=/; domain=." + hostname + ";";
+      }
+
+      // 3. Trigger Google Translate DOM combo if present
+      const combo = document.querySelector('.goog-te-combo');
+      if (combo) {
+        if (langCode === 'en') {
+          combo.value = '';
+          combo.dispatchEvent(new Event('change'));
+          setTimeout(() => {
+            if (document.documentElement.classList.contains('translated-ltr') || document.documentElement.classList.contains('translated-rtl')) {
+              window.location.reload();
+            }
+          }, 250);
+        } else {
+          combo.value = langCode;
+          combo.dispatchEvent(new Event('change'));
+        }
+      } else {
+        // If combo not yet loaded into DOM, reload page so Google Translate picks up cookie
+        window.location.reload();
+      }
+    }
+
+    function syncLanguageButtonFromCookie() {
+      const match = document.cookie.match(/googtrans=\/en\/([a-z]{2})/i);
+      const currentLang = match ? match[1].toLowerCase() : 'en';
+      document.querySelectorAll('.lang-opt-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('btn-lang-' + (currentLang === 'en' ? 'en' : currentLang));
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
     // Initialize
     lucide.createIcons();
     calculateROI();
     updateSlide();
+    syncLanguageButtonFromCookie();
   </script>
+
+  <!-- Invisible Google Translate DOM Anchor -->
+  <div id="google_translate_element" class="notranslate" style="position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none; width: 1px; height: 1px; overflow: hidden;"></div>
+
+  <!-- Google Translate Integration Script (English, Sinhala, Tamil) -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,si,ta',
+        autoDisplay: false,
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

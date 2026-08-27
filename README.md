@@ -44,6 +44,7 @@ start index.html
 | `N` | Toggle **Presenter Notes & Live Stopwatch** |
 | `F` | Toggle **Fullscreen Mode** |
 | `P` | **Export to PDF / Print Deck** |
+| `Click Language Pill` | Switch between **English (EN)**, **සිංහල (Sinhala)**, and **தமிழ் (Tamil)** |
 | `Esc` | Close open modals / video / lightbox |
 
 ---
