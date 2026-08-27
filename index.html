@@ -1193,7 +1193,7 @@
             <ul class="swot-list">
               <li>• <strong>True Device Owner (DPC):</strong> Cannot be uninstalled; persists through factory resets.</li>
               <li>• <strong>30-Day Offline Policy:</strong> Monotonic hardware clock locks even with SIM removed.</li>
-              <li>• <strong>3-Tier Gentle Escalation:</strong> Warning $\to$ App Restriction $\to$ Full Lockout.</li>
+              <li>• <strong>Hidden App Warning & Direct Restriction:</strong> Level 1 is notification messages only (app fully hidden) $\to$ direct restriction until user calls or pays instantly.</li>
               <li class="item-future-roadmap">• <strong>Emergency 112 Option:</strong> 112/119 emergency call capability can be added in future upgrade based on requirement. <span class="badge-future-roadmap">Future Implementation</span></li>
             </ul>
           </div>
@@ -1276,7 +1276,7 @@
                 <span class="mini-float-badge">Deep Dive ↗</span>
               </div>
               <div style="font-size: 18px; color: var(--text-muted); line-height: 1.52; font-weight: 500;">
-                Instant status filtering between <strong>Active</strong>, <strong>Warned</strong>, <strong>Restricted</strong>, and <strong>Locked</strong> devices.
+                Instant status tracking between <strong>Active</strong>, <strong>Notified (Level 1)</strong>, and <strong>Restricted (Level 2)</strong> devices.
               </div>
             </div>
 
@@ -1452,8 +1452,8 @@
                 <td><span style="color: var(--amber-gold);">⚠️ Partial / Brand Dependent</span></td>
               </tr>
               <tr class="interactive-card" onclick="openPointExplainer('escalation_ladder')">
-                <td><strong>Escalation Tiering</strong></td>
-                <td class="col-lead"><span style="color: var(--emerald-green); font-weight: 800;">✓ 3-Tier (Warn $\to$ Restrict $\to$ Lock)</span></td>
+                <td><strong>Enforcement Strategy</strong></td>
+                <td class="col-lead"><span style="color: var(--emerald-green); font-weight: 800;">✓ Hidden App Notifications $\to$ Direct Restriction</span></td>
                 <td><span style="color: var(--crimson-red);">✕ Binary Instant Shutoff</span></td>
                 <td><span style="color: var(--crimson-red);">✕ Binary Lockout Only</span></td>
               </tr>
@@ -1481,7 +1481,7 @@
       </section>
 
       <!-- SLIDE 9: What Extra Instalpay Has In Hand -->
-      <section class="slide" data-slide="9" data-notes="Key capabilities: 3-stage gentle escalation, 30-day offline countdown clock, sub-30s auto unlock, 60s showroom QR provisioning, emergency call options (planned for future upgrade), and ultra-low battery footprint.">
+      <section class="slide" data-slide="9" data-notes="Key capabilities: hidden reminder notifications with direct device restriction, 30-day offline countdown clock, sub-30s auto unlock, 60s showroom QR provisioning, emergency call options (planned for future upgrade), and ultra-low battery footprint.">
         <div class="slide-watermark-icon">
           <svg viewBox="0 0 200 200" fill="none"><path d="M100 20 L130 70 L190 70 L140 110 L160 170 L100 130 L40 170 L60 110 L10 70 L70 70 Z" stroke="#3A72F7" stroke-width="6"/></svg>
         </div>
@@ -1498,8 +1498,8 @@
               <div class="point-number" style="margin: 0; width: 36px; height: 36px; font-size: 16px;">01</div>
               <span class="mini-float-badge">Deep Dive ↗</span>
             </div>
-            <div class="point-title" style="font-size: 19px;">3-Stage Escalation</div>
-            <div class="point-desc" style="font-size: 17px;">Warn (Days 1–3) $\to$ Restrict (Days 4–9) $\to$ Full Lock (Day 10+). Preserves customer dignity.</div>
+            <div class="point-title" style="font-size: 19px;">Hidden App & Direct Lock</div>
+            <div class="point-desc" style="font-size: 17px;">Level 1 warning is notification messages only (app hidden). Directly restricted until user calls or pays instantly.</div>
           </div>
 
           <div class="interactive-card" onclick="openPointExplainer('offline_clock')" style="background: #FFFFFF; border: 1.5px solid var(--amber-light); border-top: 4px solid var(--amber-gold); border-radius: 12px; padding: 10px 14px;">
@@ -1595,37 +1595,32 @@
       </section>
 
       <!-- SLIDE 11: Interactive Device Escalation Simulator -->
-      <section class="slide" data-slide="11" data-notes="Interactive simulator demonstrating real-time UI state changes on the customer's device. Click between Normal, Warning, Restricted, and Locked.">
+      <section class="slide" data-slide="11" data-notes="Interactive simulator showing Level 1 reminder notifications where the app is fully hidden, and Level 2 direct device restriction until the customer manually calls support or pays instantly.">
         <div class="slide-watermark-icon">
           <svg viewBox="0 0 200 200" fill="none"><rect x="50" y="20" width="100" height="160" rx="20" stroke="#3A72F7" stroke-width="6"/><circle cx="100" cy="155" r="8" fill="#3A72F7"/></svg>
         </div>
 
         <div style="flex-shrink: 0;">
           <span class="pill-tag pill-amber pptx-anim-1"><i data-lucide="play" style="width: 14px;"></i> Hands-On Demo</span>
-          <h2 class="slide-heading pptx-anim-2">Live Simulator: <span class="highlight-blue">3-Tier Customer Device Escalation</span></h2>
-          <p class="slide-desc pptx-anim-2">Click the escalation tiers below to see the exact real-time UI response on the customer's device.</p>
+          <h2 class="slide-heading pptx-anim-2">Live Simulator: <span class="highlight-blue">Customer Notifications & Direct Restriction</span></h2>
+          <p class="slide-desc pptx-anim-2">Level 1 sends reminder notifications with app fully hidden. Level 2 directly restricts device until user calls or pays instantly.</p>
         </div>
 
         <div class="split-layout pptx-anim-3">
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <div class="sim-btn-light active" onclick="setSimMode('normal', this)" style="background: #FFFFFF; border: 1.5px solid var(--blue-border); border-radius: 12px; padding: 10px 14px; cursor: pointer;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="sim-btn-light active" onclick="setSimMode('normal', this)" style="background: #FFFFFF; border: 1.5px solid var(--blue-border); border-radius: 12px; padding: 12px 16px; cursor: pointer;">
               <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: var(--emerald-green);">● Normal Active State (Paid)</div>
-              <div style="font-size: 15.5px; color: var(--text-muted); line-height: 1.48;">Installment current. Full device access, background telemetry sync.</div>
+              <div style="font-size: 15px; color: var(--text-muted); line-height: 1.48;">Installment paid. Full device access, management app running invisibly in background.</div>
             </div>
 
-            <div class="sim-btn-light" onclick="setSimMode('warning', this)" style="background: #FFFFFF; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 10px 14px; cursor: pointer;">
-              <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: var(--amber-gold);">● Level 1: Warning (Day 1–3 Overdue)</div>
-              <div style="font-size: 15.5px; color: var(--text-muted); line-height: 1.48;">Yellow warning banner. All phone features remain completely unlocked.</div>
+            <div class="sim-btn-light" onclick="setSimMode('warning', this)" style="background: #FFFFFF; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 12px 16px; cursor: pointer;">
+              <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: var(--blue-primary);">● Level 1: Warning (Notification Messages Only)</div>
+              <div style="font-size: 15px; color: var(--text-muted); line-height: 1.48;">Reminder notification messages / SMS sent. The app is <strong>fully hidden</strong>; phone remains 100% unlocked and usable.</div>
             </div>
 
-            <div class="sim-btn-light" onclick="setSimMode('restricted', this)" style="background: #FFFFFF; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 10px 14px; cursor: pointer;">
-              <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: #EA580C;">● Level 2: Restricted (Day 4–9 Overdue)</div>
-              <div style="font-size: 15.5px; color: var(--text-muted); line-height: 1.48;">Social & gaming apps blocked. Phone dialer and Pay Now app active.</div>
-            </div>
-
-            <div class="sim-btn-light" onclick="setSimMode('locked', this)" style="background: #FFFFFF; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 10px 14px; cursor: pointer;">
-              <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: var(--crimson-red);">● Level 3: Full Lock (Day 10+ Overdue)</div>
-              <div style="font-size: 15.5px; color: var(--text-muted); line-height: 1.48;">Full screen lockout with Pay Now enabled (112 emergency calls can be added in future upgrade).</div>
+            <div class="sim-btn-light" onclick="setSimMode('restricted', this)" style="background: #FFFFFF; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 12px 16px; cursor: pointer;">
+              <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: var(--crimson-red);">● Level 2: Direct Device Restriction (No Level 3)</div>
+              <div style="font-size: 15px; color: var(--text-muted); line-height: 1.48;">Device directly restricted. Screen locked until customer <strong>manually calls support</strong> or <strong>pays instantly</strong> to restore device.</div>
             </div>
           </div>
 
@@ -1638,8 +1633,8 @@
                   <span>4G · 82%</span>
                 </div>
 
-                <div id="live-phone-banner" style="display: none; background: #FEF3C7; border: 1px solid #F59E0B; border-radius: 8px; padding: 4px 6px; margin-bottom: 8px; font-size: 11px; color: #92400E; font-weight: 600;">
-                  ⚠️ Late payment warning. Settle dues.
+                <div id="live-phone-banner" style="display: none; background: #EFF6FF; border: 1px solid #3A72F7; border-radius: 8px; padding: 6px 8px; margin-bottom: 8px; font-size: 11.5px; color: #1E3A8A; font-weight: 600;">
+                  💬 SMS: Abans installment due. Settle dues.
                 </div>
 
                 <div style="text-align: center; margin-top: 4px;">
@@ -1656,9 +1651,12 @@
                 </div>
               </div>
 
-              <div>
-                <button id="live-phone-btn" style="width: 100%; background: var(--blue-primary); border: 0; color: white; padding: 8px; border-radius: 8px; font-family: var(--font-heading); font-weight: 700; font-size: 14px; cursor: pointer;">
-                  Call Agent
+              <div id="live-phone-actions" style="display: flex; flex-direction: column; gap: 6px;">
+                <button id="live-phone-btn" style="width: 100%; background: var(--blue-primary); border: 0; color: white; padding: 8px; border-radius: 8px; font-family: var(--font-heading); font-weight: 700; font-size: 13.5px; cursor: pointer;">
+                  Device Unlocked
+                </button>
+                <button id="live-phone-call-btn" style="display: none; width: 100%; background: #0F172A; border: 0; color: white; padding: 7px; border-radius: 8px; font-family: var(--font-heading); font-weight: 700; font-size: 12.5px; cursor: pointer;">
+                  📞 Call Support / Agent
                 </button>
               </div>
             </div>
@@ -2033,7 +2031,7 @@
         svg: `<svg viewBox="0 0 200 160" fill="none"><circle cx="100" cy="80" r="50" fill="#FFFBEB" stroke="#F59E0B" stroke-width="3"/><path d="M100 50 V80 L120 95" stroke="#D97706" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="80" r="5" fill="#D97706"/></svg>`,
         points: [
           "• <strong>Automated Reminders:</strong> Friendly prompts keep customers informed before due dates arrive.",
-          "• <strong>Progressive Escalation:</strong> Gentle notifications on Days 1–3, app restrictions on Days 4–9, and lock on Day 10+.",
+          "• <strong>Discreet Notification & Direct Lock:</strong> Level 1 reminder notifications (app fully hidden); directly restricted until customer calls or pays instantly.",
           "• <strong>Instant Recovery:</strong> Device unlocks in seconds the moment overdue installment is received."
         ],
         impact: "⚡ Abans Efficiency: 100% automated collection lifecycle running 24 hours a day, 365 days a year."
@@ -2056,7 +2054,7 @@
         points: [
           "• <strong>True Google DPC Owner:</strong> Permanently anchored into the Android operating system.",
           "• <strong>30-Day Offline Timer:</strong> Defaulters cannot evade payment by staying offline.",
-          "• <strong>Respectful 3-Tier Escalation:</strong> Preserves customer dignity with progressive alerts rather than harsh instant shutoffs.",
+          "• <strong>Hidden App Warning & Direct Restriction:</strong> Level 1 keeps app fully hidden with reminder alerts; device directly restricted if unpaid until settled.",
           "<div style=\"opacity: 0.55;\">• <strong>Emergency Call Option (Future Implementation):</strong> 112/119 national emergency pass-through can be integrated in future upgrades based on Abans requirements.</div>"
         ],
         impact: "⚡ Abans Advantage: Superior technology that puts you years ahead of Snap Pay and Cool Pay."
@@ -2172,15 +2170,15 @@
         impact: "⚡ Abans Asset Security: Destroys secondary illegal markets for financed mobile phones."
       },
       escalation_ladder: {
-        category: "HUMAN ESCALATION",
-        title: "Dignity-First 3-Tier Escalation",
-        svg: `<svg viewBox="0 0 200 160" fill="none"><rect x="30" y="110" width="40" height="30" rx="6" fill="#F59E0B"/><rect x="80" y="75" width="40" height="65" rx="6" fill="#EA580C"/><rect x="130" y="40" width="40" height="100" rx="6" fill="#E11925"/><path d="M50 95 L100 60 L150 25" stroke="#3A72F7" stroke-width="5" stroke-linecap="round"/></svg>`,
+        category: "ENFORCEMENT STRATEGY",
+        title: "Discreet Notification & Direct Restriction",
+        svg: `<svg viewBox="0 0 200 160" fill="none"><rect x="40" y="40" width="50" height="80" rx="8" fill="#EFF6FF" stroke="#3A72F7" stroke-width="3"/><path d="M50 65 H80 M50 85 H75" stroke="#3A72F7" stroke-width="3" stroke-linecap="round"/><rect x="110" y="40" width="50" height="80" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="3"/><circle cx="135" cy="70" r="12" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/><path d="M135 70 V85" stroke="#EF4444" stroke-width="3" stroke-linecap="round"/><path d="M85 80 L105 80" stroke="#64748B" stroke-width="3" stroke-linecap="round"/></svg>`,
         points: [
-          "• <strong>Tier 1 (Days 1–3 Overdue):</strong> Gentle banner reminding the user of the due date. The phone remains 100% usable.",
-          "• <strong>Tier 2 (Days 4–9 Overdue):</strong> Non-essential social and gaming apps are paused. Phone calls and Pay Now remain fully active.",
-          "• <strong>Tier 3 (Day 10+ Overdue):</strong> Full lock screen activated with Pay Now settlement buttons (emergency 112 call pass-through can be integrated in future upgrade)."
+          "• <strong>Level 1 Warning (App Fully Hidden):</strong> When overdue, the customer only receives reminder notification messages (SMS / push alerts). The management app remains 100% hidden and the phone is completely usable.",
+          "• <strong>No Level 3 (Direct Restriction):</strong> There is no complicated Level 3. If the installment is not resolved, the device directly transitions into restricted mode.",
+          "• <strong>Restricted Until Call or Instant Pay:</strong> The device remains restricted until the user manually calls Abans support or pays instantly via the payment recovery button for automatic unlock."
         ],
-        impact: "⚡ Abans Customer Care: Preserves trust and brand goodwill while ensuring overdue accounts get paid."
+        impact: "⚡ Abans Operational Power: Zero disruption for paying customers, and decisive restriction that recovers payments without delay."
       },
       emergency_dialer: {
         category: "FUTURE IMPLEMENTATION",
@@ -2503,6 +2501,7 @@
       const sub = document.getElementById('live-phone-sub');
       const info = document.getElementById('live-phone-info');
       const btn = document.getElementById('live-phone-btn');
+      const callBtn = document.getElementById('live-phone-call-btn');
 
       screen.className = `phone-screen-live state-${mode}`;
 
@@ -2511,47 +2510,45 @@
         icon.style.background = '#DCFCE7';
         icon.style.color = 'var(--emerald-green)';
         icon.innerText = '✓';
-        heading.innerText = 'Active Device';
-        sub.innerText = 'Valid until Sep 26, 2026';
+        heading.innerText = 'Device Active';
+        sub.innerText = 'Installment Current · Full Access';
         info.style.display = 'block';
+        info.innerHTML = '<div><strong>Model:</strong> Galaxy SM-M205F</div><div><strong>Next Due:</strong> LKR 37,500</div><div style="margin-top: 4px; color: var(--emerald-green); font-size: 11px; font-weight: 600;">● App Status: Hidden in background</div>';
         btn.style.background = 'var(--blue-primary)';
-        btn.innerText = 'Call Agent';
+        btn.innerText = 'Device Fully Unlocked';
+        if (callBtn) callBtn.style.display = 'none';
       } else if (mode === 'warning') {
+        // Level 1: Just notification messages, app is fully hidden
         banner.style.display = 'block';
-        banner.style.background = '#FEF3C7';
-        banner.style.borderColor = '#F59E0B';
-        banner.innerHTML = '<strong>⚠️ Late Payment Warning:</strong> Settle dues.';
-        icon.style.background = '#FEF3C7';
-        icon.style.color = 'var(--amber-gold)';
-        icon.innerText = '!';
-        heading.innerText = 'Payment Overdue';
-        sub.innerText = '3 Days Late · Full Features Active';
+        banner.style.background = '#EFF6FF';
+        banner.style.borderColor = '#3A72F7';
+        banner.innerHTML = '<div style="display:flex;align-items:center;gap:6px;"><span style="font-size:14px;">💬</span><div><strong>SMS / System Alert:</strong> Abans installment due. Please settle dues.</div></div>';
+        icon.style.background = '#E0F2FE';
+        icon.style.color = '#0284C7';
+        icon.innerText = '🔔';
+        heading.innerText = 'Notification Sent';
+        sub.innerText = 'Level 1: App is Fully Hidden';
         info.style.display = 'block';
-        btn.style.background = 'var(--amber-gold)';
-        btn.innerText = 'Pay Now (LKR 37,500)';
+        info.innerHTML = '<div><strong>Device Status:</strong> 100% Unlocked & Normal</div><div style="color: var(--blue-primary); font-size: 11px; font-weight: 600; margin-top: 4px;">✓ Customer receives notification only<br/>✓ No lock screen · App stays fully hidden</div>';
+        btn.style.background = 'var(--blue-primary)';
+        btn.innerText = 'Phone Remains 100% Usable';
+        if (callBtn) callBtn.style.display = 'none';
       } else if (mode === 'restricted') {
+        // Level 2: Device directly restricted until user manually calls or pays instantly
         banner.style.display = 'block';
-        banner.style.background = '#FFEDD5';
-        banner.style.borderColor = '#EA580C';
-        banner.innerHTML = '<strong>🚫 Restricted Mode:</strong> Calls & Pay only.';
-        icon.style.background = '#FFEDD5';
-        icon.style.color = '#EA580C';
-        icon.innerText = '⊘';
-        heading.innerText = 'Device Restricted';
-        sub.innerText = '7 Days Overdue · Essential Functions';
-        info.style.display = 'block';
-        btn.style.background = '#EA580C';
-        btn.innerText = 'Pay Now & Unrestrict';
-      } else if (mode === 'locked') {
-        banner.style.display = 'none';
+        banner.style.background = '#FEE2E2';
+        banner.style.borderColor = '#EF4444';
+        banner.innerHTML = '<strong>🔒 DIRECT RESTRICTION:</strong> Device locked due to overdue installment.';
         icon.style.background = '#FEE2E2';
         icon.style.color = 'var(--crimson-red)';
         icon.innerText = '🔒';
-        heading.innerText = 'DEVICE LOCKED';
-        sub.innerText = 'This device has been locked due to overdue installment.';
-        info.style.display = 'none';
-        btn.style.background = 'var(--crimson-red)';
-        btn.innerText = 'Call Support / Pay Now';
+        heading.innerText = 'DEVICE RESTRICTED';
+        sub.innerText = 'Restricted until user calls or pays instantly';
+        info.style.display = 'block';
+        info.innerHTML = '<div style="text-align: center; font-size: 11.5px; line-height: 1.4; color: var(--text-title);"><strong style="color: var(--crimson-red);">All device apps locked</strong><br/><span>Overdue Balance: LKR 37,500</span></div>';
+        btn.style.background = 'var(--emerald-green)';
+        btn.innerText = '💳 Pay Instantly (Auto-Unlock)';
+        if (callBtn) callBtn.style.display = 'block';
       }
     }
 

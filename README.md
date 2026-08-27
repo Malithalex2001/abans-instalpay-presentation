@@ -7,7 +7,7 @@
 ## 🎯 Overview
 
 An enterprise hardware locking and collection automation platform built for Sri Lanka's 400+ Abans showrooms.
-Features 3-tier gentle escalation, 30-day offline cryptographic protection, and sub-30-second automated payment unlocks.
+Features discreet notification reminders (app fully hidden), direct device restriction (no Level 3), 30-day offline cryptographic protection, and sub-30-second automated payment unlocks.
 
 - **Target NPL**: `< 1.5%` (down from standard 12–15% unsecured default)
 - **Auto-Unlock Speed**: `< 30 Seconds` upon showroom counter or online payment
@@ -60,7 +60,7 @@ start index.html
 8. **Market Comparison**: Instalpay.lk vs Snap Pay & Cool Pay (7 critical dimensions)
 9. **Unfair Advantages**: Key Capabilities In Hand
 10. **Operations & Support**: 24/7 SLA for 400+ Showrooms
-11. **Live Simulator**: 3-Tier Customer Device Escalation (Interactive hands-on widget)
+11. **Live Simulator**: Notification Reminders & Direct Restriction (Interactive hands-on widget)
 12. **Financial Returns**: Abans Bad Debt & ROI Calculator (Dynamic profit modeling)
 13. **Rollout Plan**: Colombo Pilot to 400+ Showrooms (3-Phase low-risk roadmap)
 14. **Executive Summary**: Abans Finance + Instalpay.lk: Zero Bad Debt, Scaled Sales
