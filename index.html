@@ -489,7 +489,7 @@
       object-fit: contain;
     }
 
-    /* SCREENSHOT SHOWCASE */
+    /* SCREENSHOT SHOWCASE - 16:9 VIEWABILITY */
     .media-card-showcase {
       background: #FFFFFF;
       border: 2px solid var(--blue-border);
@@ -499,6 +499,8 @@
       position: relative;
       cursor: zoom-in;
       transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
     }
     .media-card-showcase:hover {
       border-color: var(--blue-primary);
@@ -507,11 +509,15 @@
     }
     .media-card-showcase img {
       width: 100%;
-      height: 240px;
-      max-height: 34vh;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
-      object-position: top;
+      object-position: center;
       display: block;
+      background: #F8FAFC;
+    }
+    .media-card-showcase img.contain-fit {
+      object-fit: contain !important;
+      background: #0B132B !important;
     }
     .media-caption {
       padding: 8px 14px;
@@ -525,6 +531,7 @@
       font-weight: 700;
       color: var(--text-title);
       letter-spacing: 0.01em;
+      flex-shrink: 0;
     }
 
     /* 4-QUADRANT SWOT MATRIX */
@@ -940,25 +947,39 @@
     }
     #presenter-notes-drawer.open { display: flex; }
 
-    /* Lightbox Modal */
+    /* Lightbox Modal - Cinema 16:9 HD Zoom */
     #lightbox-zoom-modal {
       position: fixed;
       inset: 0;
-      background: rgba(7, 19, 41, 0.92);
+      background: rgba(4, 9, 20, 0.95);
       backdrop-filter: blur(16px);
       z-index: 300;
-      padding: 30px;
+      padding: 24px;
       display: none;
       align-items: center;
       justify-content: center;
-      cursor: zoom-out;
     }
     #lightbox-zoom-modal.open { display: flex; }
+    #lightbox-zoom-container {
+      max-width: 94vw;
+      max-height: 92vh;
+      background: #0B132B;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
     #lightbox-zoom-img {
-      max-width: 90vw;
-      max-height: 85vh;
-      border-radius: 14px;
-      border: 2px solid #FFFFFF;
+      max-width: 92vw;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      background: #020617;
     }
   </style>
 </head>
@@ -1227,13 +1248,13 @@
           <p class="slide-desc pptx-anim-2">Real-time collections analytics, portfolio risk gauges, and automated device status telemetry.</p>
         </div>
 
-        <div class="split-layout pptx-anim-3">
+        <div class="split-layout pptx-anim-3" style="grid-template-columns: 1.15fr 0.85fr; align-items: start;">
           <div>
-            <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.29.15.jpeg')">
+            <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.29.15.jpeg', 'Executive Collections & Fleet Dashboard')">
               <img src="./WhatsApp Image 2026-08-26 at 22.29.15.jpeg" alt="Abans Finance Admin Dashboard" />
               <div class="media-caption">
                 <span>Abans Finance Demo · Executive Dashboard</span>
-                <span class="pill-tag pill-blue" style="margin: 0; font-size: 12px;">Click to Zoom 🔍</span>
+                <span class="pill-tag pill-blue" style="margin: 0; font-size: 12px;">16:9 View · Zoom 🔍</span>
               </div>
             </div>
           </div>
@@ -1287,16 +1308,16 @@
         </div>
 
         <div class="pptx-anim-3" style="display: flex; flex-direction: column; gap: 10px;">
-          <!-- Dual Screenshots Grid -->
+          <!-- Dual Screenshots Grid (16:9 Viewable) -->
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-            <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.29.15 (1).jpeg')">
-              <img src="./WhatsApp Image 2026-08-26 at 22.29.15 (1).jpeg" alt="Customer Registration Modal" style="height: 235px;" />
-              <div class="media-caption"><span>1. KYC & Guarantor</span></div>
+            <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.29.15 (1).jpeg', 'Customer KYC & Registration')">
+              <img src="./WhatsApp Image 2026-08-26 at 22.29.15 (1).jpeg" alt="Customer Registration Modal" />
+              <div class="media-caption"><span>1. KYC & Guarantor</span> <span class="pill-tag pill-blue" style="margin: 0; font-size: 11px;">16:9 View</span></div>
             </div>
 
-            <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.35.47.jpeg')">
-              <img src="./WhatsApp Image 2026-08-26 at 22.35.47.jpeg" alt="Installment Plan Modal" style="height: 235px;" />
-              <div class="media-caption"><span>2. Plan Creation</span></div>
+            <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.35.47.jpeg', 'Showroom Plan Creation')">
+              <img src="./WhatsApp Image 2026-08-26 at 22.35.47.jpeg" alt="Installment Plan Modal" />
+              <div class="media-caption"><span>2. Plan Creation</span> <span class="pill-tag pill-blue" style="margin: 0; font-size: 11px;">16:9 View</span></div>
             </div>
           </div>
 
@@ -1338,24 +1359,24 @@
         </div>
 
         <div class="pptx-anim-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-          <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.36.37.jpeg')">
-            <img src="./WhatsApp Image 2026-08-26 at 22.36.37.jpeg" alt="Active Device Phone Screen" style="height: 245px;" />
+          <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.36.37.jpeg', 'Handset Active & Compliant State')">
+            <img class="contain-fit" src="./WhatsApp Image 2026-08-26 at 22.36.37.jpeg" alt="Active Device Phone Screen" />
             <div class="media-caption">
               <span>Active State (Paid)</span>
               <span class="pill-tag pill-green" style="margin: 0; font-size: 11px;">Compliant</span>
             </div>
           </div>
 
-          <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.38.36.jpeg')">
-            <img src="./WhatsApp Image 2026-08-26 at 22.38.36.jpeg" alt="Hardware Locked Screen" style="height: 245px;" />
+          <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.38.36.jpeg', 'Handset Hardware Lockout Screen')">
+            <img class="contain-fit" src="./WhatsApp Image 2026-08-26 at 22.38.36.jpeg" alt="Hardware Locked Screen" />
             <div class="media-caption">
               <span>Device Locked</span>
               <span class="pill-tag pill-red" style="margin: 0; font-size: 11px;">Locked</span>
             </div>
           </div>
 
-          <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.35.48 (1).jpeg')">
-            <img src="./WhatsApp Image 2026-08-26 at 22.35.48 (1).jpeg" alt="Record Payment Modal" style="height: 245px;" />
+          <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.35.48 (1).jpeg', 'Cashier Record Payment & Auto Unlock')">
+            <img src="./WhatsApp Image 2026-08-26 at 22.35.48 (1).jpeg" alt="Record Payment Modal" />
             <div class="media-caption">
               <span>Record Payment</span>
               <span class="pill-tag pill-blue" style="margin: 0; font-size: 11px;">Auto-Unlock</span>
@@ -1377,19 +1398,19 @@
         </div>
 
         <div class="pptx-anim-3" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.35.48.jpeg')">
-            <img src="./WhatsApp Image 2026-08-26 at 22.35.48.jpeg" alt="Installments Table" style="height: 245px;" />
+          <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.35.48.jpeg', 'Live Installments Ledger')">
+            <img src="./WhatsApp Image 2026-08-26 at 22.35.48.jpeg" alt="Installments Table" />
             <div class="media-caption">
               <span>Installments Table · Balance & Monthly Due</span>
-              <span class="pill-tag pill-green" style="margin: 0; font-size: 13px;">Active IMEI</span>
+              <span class="pill-tag pill-green" style="margin: 0; font-size: 13px;">16:9 View · Active IMEI</span>
             </div>
           </div>
 
-          <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.39.53.jpeg')">
-            <img src="./WhatsApp Image 2026-08-26 at 22.39.53.jpeg" alt="Device Fleet List" style="height: 245px;" />
+          <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.39.53.jpeg', 'Centralized Fleet Device Management')">
+            <img src="./WhatsApp Image 2026-08-26 at 22.39.53.jpeg" alt="Device Fleet List" />
             <div class="media-caption">
               <span>Device Fleet Manager · Remote Unlock</span>
-              <span class="pill-tag pill-blue" style="margin: 0; font-size: 13px;">Fleet Sync</span>
+              <span class="pill-tag pill-blue" style="margin: 0; font-size: 13px;">16:9 View · Fleet Sync</span>
             </div>
           </div>
         </div>
@@ -1979,9 +2000,26 @@
       </div>
     </div>
 
-    <!-- Lightbox Zoom Modal -->
-    <div id="lightbox-zoom-modal" onclick="closeLightbox()">
-      <img id="lightbox-zoom-img" src="" alt="Zoomed Screenshot" />
+    <!-- Lightbox Zoom Modal (16:9 Cinema View) -->
+    <div id="lightbox-zoom-modal" onclick="closeLightbox(event)">
+      <div id="lightbox-zoom-container" onclick="event.stopPropagation()">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 18px; background: #0B132B; border-bottom: 1px solid rgba(255,255,255,0.1);">
+          <div style="display: flex; align-items: center; gap: 10px; color: #FFFFFF; font-family: var(--font-heading); font-size: 15px; font-weight: 700;">
+            <span class="pill-tag pill-blue" style="margin: 0; font-size: 11px;">16:9 HD Zoom</span>
+            <span id="lightbox-caption-text">Live System Demonstration Screenshot</span>
+          </div>
+          <button class="explainer-close-btn" onclick="closeLightboxDirect()" style="background: rgba(255,255,255,0.12); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.25);">
+            <span>Close</span>
+            <span class="close-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+          </button>
+        </div>
+        <div style="background: #020617; display: flex; align-items: center; justify-content: center; overflow: hidden; max-height: 82vh;">
+          <img id="lightbox-zoom-img" src="" alt="Zoomed Screenshot" />
+        </div>
+        <div style="padding: 8px 18px; background: #0B132B; border-top: 1px solid rgba(255,255,255,0.1); color: #94A3B8; font-size: 13px; text-align: center; font-weight: 500;">
+          Press <kbd style="background: rgba(255,255,255,0.12); padding: 2px 6px; border-radius: 4px; color: #FFF;">ESC</kbd> or click outside to dismiss zoom
+        </div>
+      </div>
     </div>
 
   </div>
@@ -2495,14 +2533,21 @@
       modal.style.display = 'none';
     }
 
-    // Lightbox Zoom
-    function openLightbox(imgSrc) {
+    // Lightbox Zoom (16:9 Cinema View)
+    function openLightbox(imgSrc, caption) {
       const modal = document.getElementById('lightbox-zoom-modal');
       const img = document.getElementById('lightbox-zoom-img');
+      const capEl = document.getElementById('lightbox-caption-text');
       img.src = imgSrc;
+      if (capEl && caption) capEl.textContent = caption;
       modal.classList.add('open');
     }
-    function closeLightbox() {
+    function closeLightbox(e) {
+      if (!e || e.target.id === 'lightbox-zoom-modal') {
+        document.getElementById('lightbox-zoom-modal').classList.remove('open');
+      }
+    }
+    function closeLightboxDirect() {
       document.getElementById('lightbox-zoom-modal').classList.remove('open');
     }
 
