@@ -1194,7 +1194,7 @@
               <li>• <strong>True Device Owner (DPC):</strong> Cannot be uninstalled; persists through factory resets.</li>
               <li>• <strong>30-Day Offline Policy:</strong> Monotonic hardware clock locks even with SIM removed.</li>
               <li>• <strong>3-Tier Gentle Escalation:</strong> Warning $\to$ App Restriction $\to$ Full Lockout.</li>
-              <li>• <strong>Emergency 112 Dialing:</strong> 112/119 national emergency pass-through always active.</li>
+              <li class="item-future-roadmap">• <strong>Emergency 112 Option:</strong> 112/119 emergency call capability can be added in future upgrade based on requirement. <span class="badge-future-roadmap">Future Implementation</span></li>
             </ul>
           </div>
 
@@ -1469,9 +1469,9 @@
                 <td><span style="color: var(--amber-gold);">⚠️ Batch Sync (2–24 Hours)</span></td>
                 <td><span style="color: var(--crimson-red);">✕ Manual Shop Confirmation</span></td>
               </tr>
-              <tr class="interactive-card" onclick="openPointExplainer('emergency_dialer')">
-                <td><strong>Emergency 112 Dialing</strong></td>
-                <td class="col-lead"><span style="color: var(--emerald-green); font-weight: 800;">✓ Fully Legal & Operational</span></td>
+              <tr class="interactive-card item-future-roadmap" onclick="openPointExplainer('emergency_dialer')">
+                <td><strong>Emergency 112 Option</strong> <span class="badge-future-roadmap">Future Upgrade</span></td>
+                <td class="col-lead"><span style="color: var(--text-dim); font-weight: 700;">Planned Upgrade (On Requirement)</span></td>
                 <td><span style="color: var(--amber-gold);">⚠️ Inconsistent</span></td>
                 <td><span style="color: var(--crimson-red);">✕ Frequently Blocks Dialer</span></td>
               </tr>
@@ -1481,14 +1481,14 @@
       </section>
 
       <!-- SLIDE 9: What Extra Instalpay Has In Hand -->
-      <section class="slide" data-slide="9" data-notes="6 unfair advantages: 3-stage gentle escalation, 30-day offline countdown clock, sub-30s auto unlock, 60s showroom QR provisioning, 112 emergency pass-through, and ultra-low battery footprint.">
+      <section class="slide" data-slide="9" data-notes="Key capabilities: 3-stage gentle escalation, 30-day offline countdown clock, sub-30s auto unlock, 60s showroom QR provisioning, emergency call options (planned for future upgrade), and ultra-low battery footprint.">
         <div class="slide-watermark-icon">
           <svg viewBox="0 0 200 200" fill="none"><path d="M100 20 L130 70 L190 70 L140 110 L160 170 L100 130 L40 170 L60 110 L10 70 L70 70 Z" stroke="#3A72F7" stroke-width="6"/></svg>
         </div>
 
         <div style="flex-shrink: 0;">
           <span class="pill-tag pill-blue pptx-anim-1"><i data-lucide="award" style="width: 14px;"></i> Unfair Advantages</span>
-          <h2 class="slide-heading pptx-anim-2">Unfair Advantages: <span class="highlight-blue">6 Key Capabilities In Hand</span></h2>
+          <h2 class="slide-heading pptx-anim-2">Unfair Advantages: <span class="highlight-blue">Key Capabilities In Hand</span></h2>
           <p class="slide-desc pptx-anim-2">Proprietary innovations that preserve customer dignity while guaranteeing 100% financial recovery.</p>
         </div>
 
@@ -1529,13 +1529,13 @@
             <div class="point-desc" style="font-size: 17px;">Showroom staff tap setup screen 6 times and scan the QR code for instant unboxing enrollment.</div>
           </div>
 
-          <div class="interactive-card" onclick="openPointExplainer('emergency_dialer')" style="background: #FFFFFF; border: 1.5px solid var(--blue-border); border-radius: 12px; padding: 10px 14px;">
+          <div class="interactive-card item-future-roadmap" onclick="openPointExplainer('emergency_dialer')" style="background: #F8FAFC; border: 1.5px dashed #94A3B8; border-radius: 12px; padding: 10px 14px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-              <div class="point-number" style="margin: 0; width: 36px; height: 36px; font-size: 16px;">05</div>
+              <div class="point-number" style="margin: 0; width: 36px; height: 36px; font-size: 16px; background: #F1F5F9; color: #64748B;">05</div>
               <span class="mini-float-badge">Deep Dive ↗</span>
             </div>
-            <div class="point-title" style="font-size: 19px;">112 Emergency Dialer</div>
-            <div class="point-desc" style="font-size: 17px;">112 national emergency and dedicated Abans agent call buttons always accessible in lock mode.</div>
+            <div class="point-title" style="font-size: 19px; color: var(--text-dim);">Emergency Option <span class="badge-future-roadmap">Future Upgrade</span></div>
+            <div class="point-desc" style="font-size: 17px;">112 national emergency and agent calling can be integrated in future upgrades based on Abans requirements.</div>
           </div>
 
           <div class="interactive-card" onclick="openPointExplainer('battery_drain')" style="background: #FFFFFF; border: 1.5px solid var(--emerald-light); border-radius: 12px; padding: 10px 14px;">
@@ -1549,74 +1549,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 10: Tech Stack Architecture -->
-      <section class="slide" data-slide="10" data-notes="Technical stack built on enterprise Android Enterprise DPC, Samsung Knox SDK, Next.js 14, Node TypeScript, PostgreSQL, Redis, and high-security HMAC request signing.">
-        <div class="slide-watermark-icon">
-          <svg viewBox="0 0 200 200" fill="none"><rect x="40" y="40" width="120" height="120" rx="20" stroke="#3A72F7" stroke-width="6"/><circle cx="100" cy="100" r="30" stroke="#3A72F7" stroke-width="6"/></svg>
-        </div>
-
-        <div style="flex-shrink: 0;">
-          <span class="pill-tag pill-blue pptx-anim-1"><i data-lucide="cpu" style="width: 14px;"></i> Enterprise Architecture</span>
-          <h2 class="slide-heading pptx-anim-2">Enterprise Tech Stack: <span class="highlight-blue">Android DPC & Cloud Infrastructure</span></h2>
-          <p class="slide-desc pptx-anim-2">Bank-grade encryption, high-throughput cloud microservices, and carrier-grade SMS/WhatsApp gateways.</p>
-        </div>
-
-        <div class="pptx-anim-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-          <div class="interactive-card" onclick="openPointExplainer('tech_mobile')" style="background: #FFFFFF; border: 1.5px solid var(--blue-border); border-radius: 12px; padding: 14px;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <i data-lucide="smartphone" style="color: var(--blue-primary); width: 22px; height: 22px;"></i>
-                <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--text-title);">Mobile Client</div>
-              </div>
-              <span class="mini-float-badge">Deep Dive ↗</span>
-            </div>
-            <div style="font-size: 17.5px; line-height: 1.52; color: var(--text-muted); font-weight: 500;">
-              • Kotlin (Flow & Coroutines)<br />
-              • Android Enterprise DPC<br />
-              • Samsung Knox SDK<br />
-              • Encrypted Room DB (SQLCipher)<br />
-              • Hardware Keystore Attestation
-            </div>
-          </div>
-
-          <div class="interactive-card" onclick="openPointExplainer('tech_cloud')" style="background: #FFFFFF; border: 1.5px solid var(--emerald-light); border-radius: 12px; padding: 14px;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <i data-lucide="server" style="color: var(--emerald-green); width: 22px; height: 22px;"></i>
-                <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--text-title);">Cloud Backend</div>
-              </div>
-              <span class="mini-float-badge">Deep Dive ↗</span>
-            </div>
-            <div style="font-size: 17.5px; line-height: 1.52; color: var(--text-muted); font-weight: 500;">
-              • Next.js 14 & Node.js TypeScript<br />
-              • PostgreSQL with Prisma ORM<br />
-              • Redis Pub/Sub & WebSockets<br />
-              • Google FCM High-Priority Data<br />
-              • AWS Asia-Pacific (Low Latency)
-            </div>
-          </div>
-
-          <div class="interactive-card" onclick="openPointExplainer('tech_gateways')" style="background: #FFFFFF; border: 1.5px solid var(--abans-red-border); border-radius: 12px; padding: 14px;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <i data-lucide="git-merge" style="color: var(--abans-red); width: 22px; height: 22px;"></i>
-                <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--text-title);">Banking & Gateways</div>
-              </div>
-              <span class="mini-float-badge">Deep Dive ↗</span>
-            </div>
-            <div style="font-size: 17.5px; line-height: 1.52; color: var(--text-muted); font-weight: 500;">
-              • Dialog, Mobitel, Hutch SMS<br />
-              • WhatsApp Cloud Business API<br />
-              • Sri Lanka PDPA Compliance<br />
-              <span class="item-future-roadmap" style="display: inline-block;">• LankaPay / CEFT / JustPay <span class="badge-future-roadmap">Upcoming</span></span><br />
-              <span class="item-future-roadmap" style="display: inline-block;">• Abans SAP / Oracle POS Sync <span class="badge-future-roadmap">Roadmap</span></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 11: Support Services & SLA Operations -->
-      <section class="slide" data-slide="11" data-notes="Support is paramount for Abans. We deliver 24/7 technical hotline support, branch training kits, guaranteed 99.9% uptime SLA, dedicated Key Account Management, and continuous OEM OS testing.">
+      <!-- SLIDE 10: Support Services & SLA Operations -->
+      <section class="slide" data-slide="10" data-notes="Support is paramount for Abans. We deliver 24/7 technical hotline support, branch training kits, guaranteed 99.9% uptime SLA, dedicated Key Account Management, and continuous OEM OS testing.">
         <div class="slide-watermark-icon">
           <svg viewBox="0 0 200 200" fill="none"><path d="M40 100 A60 60 0 0 1 160 100 V140 C160 155 145 170 130 170 H100" stroke="#3A72F7" stroke-width="6"/><rect x="30" y="90" width="20" height="40" rx="6" fill="#3A72F7"/><rect x="150" y="90" width="20" height="40" rx="6" fill="#3A72F7"/></svg>
         </div>
@@ -1660,8 +1594,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 12: Interactive Device Escalation Simulator -->
-      <section class="slide" data-slide="12" data-notes="Interactive simulator demonstrating real-time UI state changes on the customer's device. Click between Normal, Warning, Restricted, and Locked.">
+      <!-- SLIDE 11: Interactive Device Escalation Simulator -->
+      <section class="slide" data-slide="11" data-notes="Interactive simulator demonstrating real-time UI state changes on the customer's device. Click between Normal, Warning, Restricted, and Locked.">
         <div class="slide-watermark-icon">
           <svg viewBox="0 0 200 200" fill="none"><rect x="50" y="20" width="100" height="160" rx="20" stroke="#3A72F7" stroke-width="6"/><circle cx="100" cy="155" r="8" fill="#3A72F7"/></svg>
         </div>
@@ -1691,7 +1625,7 @@
 
             <div class="sim-btn-light" onclick="setSimMode('locked', this)" style="background: #FFFFFF; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 10px 14px; cursor: pointer;">
               <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: var(--crimson-red);">● Level 3: Full Lock (Day 10+ Overdue)</div>
-              <div style="font-size: 15.5px; color: var(--text-muted); line-height: 1.48;">Full screen lockout. Only 112 emergency calls and Pay Now enabled.</div>
+              <div style="font-size: 15.5px; color: var(--text-muted); line-height: 1.48;">Full screen lockout with Pay Now enabled (112 emergency calls can be added in future upgrade).</div>
             </div>
           </div>
 
@@ -1732,8 +1666,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 13: Interactive Abans ROI Calculator -->
-      <section class="slide" data-slide="13" data-notes="Interactive ROI financial model demonstrating bad debt reduction and multi-million LKR profit recovery for Abans.">
+      <!-- SLIDE 12: Interactive Abans ROI Calculator -->
+      <section class="slide" data-slide="12" data-notes="Interactive ROI financial model demonstrating bad debt reduction and multi-million LKR profit recovery for Abans.">
         <div class="slide-watermark-icon">
           <svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="70" stroke="#10B981" stroke-width="6"/><path d="M100 60 V140 M80 80 H120 M80 120 H120" stroke="#10B981" stroke-width="6"/></svg>
         </div>
@@ -1790,8 +1724,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 14: Showroom Rollout Roadmap -->
-      <section class="slide" data-slide="14" data-notes="Rollout roadmap: Phase 1 Colombo Flagship Pilot (Weeks 1-3), Phase 2 Regional Expansion (Weeks 4-7), Phase 3 Full Showroom & Dealer Network (Weeks 8+).">
+      <!-- SLIDE 13: Showroom Rollout Roadmap -->
+      <section class="slide" data-slide="13" data-notes="Rollout roadmap: Phase 1 Colombo Flagship Pilot (Weeks 1-3), Phase 2 Regional Expansion (Weeks 4-7), Phase 3 Full Showroom & Dealer Network (Weeks 8+).">
         <div class="slide-watermark-icon">
           <svg viewBox="0 0 200 200" fill="none"><path d="M30 150 Q70 80 100 120 T170 50" stroke="#3A72F7" stroke-width="6"/><circle cx="170" cy="50" r="10" fill="#3A72F7"/></svg>
         </div>
@@ -1846,8 +1780,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 15: Executive Wrap-up & Live Video Player -->
-      <section class="slide" data-slide="15" data-notes="Thank you. We are ready to launch the Phase 1 pilot immediately. Click 'Watch Live Hardware Video' to see the physical remote lock demonstration, and let's open the floor for executive Q&A.">
+      <!-- SLIDE 14: Executive Wrap-up & Live Video Player -->
+      <section class="slide" data-slide="14" data-notes="Thank you. We are ready to launch the Phase 1 pilot immediately. Click 'Watch Live Hardware Video' to see the physical remote lock demonstration, and let's open the floor for executive Q&A.">
         <div class="slide-watermark-icon">
           <svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="70" stroke="#E11925" stroke-width="6"/><polygon points="85,75 130,100 85,125" fill="#E11925"/></svg>
         </div>
@@ -1905,7 +1839,7 @@
         </div>
 
         <div class="deck-counter-badge">
-          SLIDE <span class="active-idx" id="slide-num">01</span> / <span id="total-slides">15</span>
+          SLIDE <span class="active-idx" id="slide-num">01</span> / <span id="total-slides">14</span>
         </div>
       </div>
 
@@ -2123,7 +2057,7 @@
           "• <strong>True Google DPC Owner:</strong> Permanently anchored into the Android operating system.",
           "• <strong>30-Day Offline Timer:</strong> Defaulters cannot evade payment by staying offline.",
           "• <strong>Respectful 3-Tier Escalation:</strong> Preserves customer dignity with progressive alerts rather than harsh instant shutoffs.",
-          "• <strong>112 Emergency Access:</strong> Full compliance with national emergency dialing regulations."
+          "<div style=\"opacity: 0.55;\">• <strong>Emergency Call Option (Future Implementation):</strong> 112/119 national emergency pass-through can be integrated in future upgrades based on Abans requirements.</div>"
         ],
         impact: "⚡ Abans Advantage: Superior technology that puts you years ahead of Snap Pay and Cool Pay."
       },
@@ -2244,20 +2178,20 @@
         points: [
           "• <strong>Tier 1 (Days 1–3 Overdue):</strong> Gentle banner reminding the user of the due date. The phone remains 100% usable.",
           "• <strong>Tier 2 (Days 4–9 Overdue):</strong> Non-essential social and gaming apps are paused. Phone calls and Pay Now remain fully active.",
-          "• <strong>Tier 3 (Day 10+ Overdue):</strong> Full lock screen activated with emergency 112 calls and Pay Now buttons."
+          "• <strong>Tier 3 (Day 10+ Overdue):</strong> Full lock screen activated with Pay Now settlement buttons (emergency 112 call pass-through can be integrated in future upgrade)."
         ],
         impact: "⚡ Abans Customer Care: Preserves trust and brand goodwill while ensuring overdue accounts get paid."
       },
       emergency_dialer: {
-        category: "SAFETY & LEGAL",
-        title: "112 National Emergency Pass-Through",
-        svg: `<svg viewBox="0 0 200 160" fill="none"><rect x="60" y="30" width="80" height="100" rx="16" fill="#EFF6FF" stroke="#3A72F7" stroke-width="3"/><path d="M80 85 C80 85 90 100 105 100 C120 100 120 85 120 85" stroke="#10B981" stroke-width="5" stroke-linecap="round"/><text x="82" y="65" font-size="16" font-weight="bold" fill="#E11925">112</text></svg>`,
+        category: "FUTURE IMPLEMENTATION",
+        title: "Emergency 112 Option (Future Implementation)",
+        svg: `<svg viewBox="0 0 200 160" fill="none"><rect x="60" y="30" width="80" height="100" rx="16" fill="#F8FAFC" stroke="#94A3B8" stroke-width="3" stroke-dasharray="4 4"/><path d="M80 85 C80 85 90 100 105 100 C120 100 120 85 120 85" stroke="#94A3B8" stroke-width="5" stroke-linecap="round"/><text x="82" y="65" font-size="16" font-weight="bold" fill="#64748B">112</text></svg>`,
         points: [
-          "• <strong>Always Connected in Emergencies:</strong> 112 (Police & Emergency) and 119 can always be dialed even when locked.",
-          "• <strong>Fully Compliant with TRCSL:</strong> Meets all Sri Lankan telecommunication and public safety standards.",
-          "• <strong>One-Tap Abans Support:</strong> Customers can call the Abans support hotline directly from the lock screen."
+          "<div style=\"opacity: 0.85;\">• <strong>Not Currently Implemented:</strong> Emergency 112 dialing options are not active in the baseline software release.</div>",
+          "<div style=\"opacity: 0.85;\">• <strong>Future Upgrade on Requirement:</strong> Emergency 112 / 119 pass-through can be customized and integrated in future upgrades based on Abans operational specifications.</div>",
+          "<div style=\"opacity: 0.85;\">• <strong>Regulatory Readiness:</strong> Architected to easily interface with TRCSL public safety standards whenever activated.</div>"
         ],
-        impact: "⚡ Abans Brand Protection: Legally sound, consumer-safe, and ethically responsible."
+        impact: "⚡ Future Capability: Ready to be custom-implemented based on Abans operational requirements."
       },
       qr_setup: {
         category: "SHOWROOM SPEED",

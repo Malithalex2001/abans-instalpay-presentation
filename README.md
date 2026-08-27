@@ -13,7 +13,7 @@ Features 3-tier gentle escalation, 30-day offline cryptographic protection, and 
 - **Auto-Unlock Speed**: `< 30 Seconds` upon showroom counter or online payment
 - **Offline Survival**: `30-Day` hardware monotonic countdown timer
 - **Showroom Setup**: `60-Second` zero-touch QR scan during unboxing
-- **Legal Compliance**: Full `112/119` national emergency call pass-through
+- **Emergency Options**: `112/119` emergency call pass-through ready for future upgrade on requirement
 
 ---
 
@@ -48,23 +48,22 @@ start index.html
 
 ---
 
-## 📂 Slide Deck Structure (15 Keynote Slides)
+## 📂 Slide Deck Structure (14 Keynote Slides)
 
 1. **Executive Vision**: Financing Smartphones with Confidence: `Abans Finance + Instalpay.lk`
 2. **5W Strategy**: How It Works for Abans Finance (Who, What, Where, When, Why)
 3. **Strategic Audit**: SWOT Analysis (Internal defensibility and market opportunities)
 4. **Live Demo 1**: Collections & Fleet Dashboard (92% collections target gauge, fleet status)
-5. **Live Demo 2**: 60-Second Customer & IMEI Setup (Counter unboxing & guarantor safeguarding)
+5. **Live Demo 2**: 60-Second Customer & IMEI Setup (Counter unboxing & guarantor records)
 6. **Live Demo 3**: Phone Lock & Sub-30s Auto Unlock (Real-time device states & clearance)
 7. **Live Demo 4**: Installments Ledger & Fleet Manager (Account dues & remote unlock controls)
 8. **Market Comparison**: Instalpay.lk vs Snap Pay & Cool Pay (7 critical dimensions)
-9. **Unfair Advantages**: 6 Key Capabilities In Hand
-10. **Enterprise Tech Stack**: Android DPC & Cloud Infrastructure
-11. **Operations & Support**: 24/7 SLA for 400+ Showrooms
-12. **Live Simulator**: 3-Tier Customer Device Escalation (Interactive hands-on widget)
-13. **Financial Returns**: Abans Bad Debt & ROI Calculator (Dynamic profit modeling)
-14. **Rollout Plan**: Colombo Pilot to 400+ Showrooms (3-Phase low-risk roadmap)
-15. **Executive Summary**: Abans Finance + Instalpay.lk: Zero Bad Debt, Scaled Sales
+9. **Unfair Advantages**: Key Capabilities In Hand
+10. **Operations & Support**: 24/7 SLA for 400+ Showrooms
+11. **Live Simulator**: 3-Tier Customer Device Escalation (Interactive hands-on widget)
+12. **Financial Returns**: Abans Bad Debt & ROI Calculator (Dynamic profit modeling)
+13. **Rollout Plan**: Colombo Pilot to 400+ Showrooms (3-Phase low-risk roadmap)
+14. **Executive Summary**: Abans Finance + Instalpay.lk: Zero Bad Debt, Scaled Sales
 
 ---
 
