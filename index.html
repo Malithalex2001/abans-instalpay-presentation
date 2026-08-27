@@ -1283,25 +1283,28 @@
         <div style="flex-shrink: 0;">
           <span class="pill-tag pill-green pptx-anim-1"><i data-lucide="user-plus" style="width: 14px;"></i> Live Software Demo 2</span>
           <h2 class="slide-heading pptx-anim-2">Live Demo 2: <span class="highlight-blue">60-Second Customer & IMEI Setup</span></h2>
-          <p class="slide-desc pptx-anim-2">Captures customer KYC, guarantor telemetry, down payment, and configurable grace period rules.</p>
+          <p class="slide-desc pptx-anim-2">Captures customer KYC, guarantor verification records, down payment, and configurable grace period rules.</p>
         </div>
 
-        <div class="split-layout pptx-anim-3">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div class="pptx-anim-3" style="display: flex; flex-direction: column; gap: 10px;">
+          <!-- Dual Screenshots Grid -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
             <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.29.15 (1).jpeg')">
               <img src="./WhatsApp Image 2026-08-26 at 22.29.15 (1).jpeg" alt="Customer Registration Modal" style="height: 235px;" />
               <div class="media-caption"><span>1. KYC & Guarantor</span></div>
             </div>
+
             <div class="media-card-showcase" onclick="openLightbox('./WhatsApp Image 2026-08-26 at 22.35.47.jpeg')">
               <img src="./WhatsApp Image 2026-08-26 at 22.35.47.jpeg" alt="Installment Plan Modal" style="height: 235px;" />
-              <div class="media-caption"><span>2. Installment & Grace</span></div>
+              <div class="media-caption"><span>2. Plan Creation</span></div>
             </div>
           </div>
 
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div class="interactive-card" onclick="openPointExplainer('pos_workflow')" style="background: #FFFFFF; border-left: 4px solid var(--emerald-green); border: 1.5px solid #A7F3D0; border-radius: 12px; padding: 12px 16px;">
+          <!-- Feature Cards Below Screenshots -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div class="interactive-card" onclick="openPointExplainer('pos_workflow')" style="background: #FFFFFF; border-left: 4px solid var(--emerald-green); border: 1.5px solid var(--emerald-light); border-radius: 12px; padding: 12px 16px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--emerald-green);">Fast 60-Second Cashier Workflow</div>
+                <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--emerald-green);">Showroom Plan Setup</div>
                 <span class="mini-float-badge">Deep Dive ↗</span>
               </div>
               <div style="font-size: 18px; color: var(--text-muted); line-height: 1.52; font-weight: 500;">
@@ -1311,11 +1314,11 @@
 
             <div class="interactive-card" onclick="openPointExplainer('pos_guarantor')" style="background: #FFFFFF; border-left: 4px solid var(--blue-primary); border: 1.5px solid var(--blue-border); border-radius: 12px; padding: 12px 16px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--blue-primary);">Guarantor Safeguard</div>
+                <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--blue-primary);">Guarantor Records</div>
                 <span class="mini-float-badge">Deep Dive ↗</span>
               </div>
               <div style="font-size: 18px; color: var(--text-muted); line-height: 1.52; font-weight: 500;">
-                Captures full guarantor details directly into the encrypted database for automated secondary notifications.
+                Captures verified guarantor details for KYC audit. <span class="item-future-roadmap" style="display: inline;">Guarantor will not receive notification messages <span class="badge-future-roadmap">Future Upgrade</span></span>
               </div>
             </div>
           </div>
@@ -2164,15 +2167,15 @@
         impact: "⚡ Abans Showroom Efficiency: Zero lines or customer delays at retail billing counters."
       },
       pos_guarantor: {
-        category: "BACKUP SECURITY",
-        title: "Guarantor Contact Safeguards",
+        category: "KYC & VERIFICATION",
+        title: "Guarantor Contact Records",
         svg: `<svg viewBox="0 0 200 160" fill="none"><circle cx="80" cy="65" r="20" fill="#EBF2FF" stroke="#3A72F7" stroke-width="3"/><circle cx="130" cy="75" r="16" fill="#ECFDF5" stroke="#10B981" stroke-width="3"/><path d="M55 125 C55 105 70 100 80 100 C90 100 105 105 105 125 Z" fill="#3A72F7"/></svg>`,
         points: [
-          "• <strong>Verified Backup Contact:</strong> Captures secondary contact details safely during onboarding.",
-          "• <strong>Automated Courtesy Alerts:</strong> Sends a gentle SMS or WhatsApp notification to the guarantor if overdue reaches Level 2.",
-          "• <strong>Social Accountability:</strong> Prompts fast payment resolution without uncomfortable debt recovery visits."
+          "• <strong>Verified KYC Records:</strong> Stores guarantor contact details securely in the database for identity verification and risk audit.",
+          "<div style=\"opacity: 0.55;\">• <strong>No Notification Messages (Future Upgrade):</strong> The guarantor will not receive any notification messages. Automated SMS or WhatsApp messaging to guarantors can be implemented in a future upgrade based on Abans requirements.</div>",
+          "• <strong>Customer Dignity & Privacy:</strong> Keeps all payment communication directly with the primary customer while maintaining accurate guarantor records on file."
         ],
-        impact: "⚡ Abans Recovery Rate: Cuts delinquent resolution time by more than 50%."
+        impact: "⚡ Abans Operational Clarity: Reliable guarantor records on file with zero unintended messages sent to secondary contacts."
       },
       dpc_mode: {
         category: "HARDWARE DEFENSE",
