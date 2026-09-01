@@ -78,7 +78,8 @@ start index.html
 
 ---
 
-## 👥 Partners
+## 👥 Partners & Entities
 
 - **Abans Finance PLC** — Sri Lanka's trusted retail financing institution
 - **Instalpay.lk** — Smart device financing & automated hardware lock technology suite
+- **Indigo Mobile (Pvt) Ltd** — Operating partner, payment gateway integration & platform infrastructure provider
