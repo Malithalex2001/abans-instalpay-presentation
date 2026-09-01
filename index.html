@@ -2542,10 +2542,25 @@
     }
 
     // SLIDE NAVIGATION & PRESENTATION DECK CONTROLLER
-    let currentSlide = 1;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
     document.getElementById('total-slides').innerText = String(totalSlides).padStart(2, '0');
+
+    function getInitialSlide() {
+      const hashMatch = window.location.hash.match(/#slide-(\d+)/);
+      if (hashMatch) {
+        const s = parseInt(hashMatch[1], 10);
+        if (s >= 1 && s <= totalSlides) return s;
+      }
+      const saved = sessionStorage.getItem('abans_deck_active_slide');
+      if (saved) {
+        const s = parseInt(saved, 10);
+        if (s >= 1 && s <= totalSlides) return s;
+      }
+      return 1;
+    }
+
+    let currentSlide = getInitialSlide();
 
     // Stopwatch Timer
     let secondsElapsed = 0;
@@ -2558,6 +2573,12 @@
     }, 1000);
 
     function updateSlide() {
+      // Save active slide state to prevent jumping back to slide 1 on language change or reload
+      sessionStorage.setItem('abans_deck_active_slide', currentSlide);
+      try {
+        history.replaceState(null, '', '#slide-' + currentSlide);
+      } catch (e) {}
+
       slides.forEach((slide, index) => {
         const slideIndex = index + 1;
         slide.classList.remove('active', 'prev');
@@ -2599,6 +2620,16 @@
         updateSlide();
       }
     }
+
+    window.addEventListener('hashchange', () => {
+      const hashMatch = window.location.hash.match(/#slide-(\d+)/);
+      if (hashMatch) {
+        const s = parseInt(hashMatch[1], 10);
+        if (s >= 1 && s <= totalSlides && s !== currentSlide) {
+          goToSlide(s);
+        }
+      }
+    });
 
     // Keyboard Shortcuts
     document.addEventListener('keydown', (e) => {
@@ -2779,12 +2810,18 @@
 
     // Google Translate Controller (English, Sinhala, Tamil)
     function translatePresentation(langCode) {
-      // 1. Update UI active button states
+      // 1. Explicitly preserve current active slide
+      sessionStorage.setItem('abans_deck_active_slide', currentSlide);
+      try {
+        history.replaceState(null, '', '#slide-' + currentSlide);
+      } catch (e) {}
+
+      // 2. Update UI active button states
       document.querySelectorAll('.lang-opt-btn').forEach(btn => btn.classList.remove('active'));
       const activeBtn = document.getElementById('btn-lang-' + langCode);
       if (activeBtn) activeBtn.classList.add('active');
 
-      // 2. Set google translation cookie for persistence across slide navigation
+      // 3. Set google translation cookie for persistence across slide navigation
       const hostname = window.location.hostname;
       const cookieValue = (langCode === 'en') ? '/en/en' : ('/en/' + langCode);
       
@@ -2802,7 +2839,7 @@
         document.cookie = "googtrans=" + cookieValue + "; path=/; domain=." + hostname + ";";
       }
 
-      // 3. Trigger Google Translate DOM combo if present
+      // 4. Trigger Google Translate DOM combo if present
       const combo = document.querySelector('.goog-te-combo');
       if (combo) {
         if (langCode === 'en') {
