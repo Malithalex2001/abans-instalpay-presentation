@@ -49,7 +49,7 @@ start index.html
 
 ---
 
-## 📂 Slide Deck Structure (14 Keynote Slides)
+## 📂 Slide Deck Structure (15 Keynote Slides)
 
 1. **Executive Vision**: Financing Smartphones with Confidence: `Abans Finance + Instalpay.lk`
 2. **5W Strategy**: How It Works for Abans Finance (Who, What, Where, When, Why)
@@ -63,8 +63,9 @@ start index.html
 10. **Operations & Support**: 24/7 SLA for 400+ Showrooms
 11. **Live Simulator**: Notification Reminders & Direct Restriction (Interactive hands-on widget)
 12. **Financial Returns**: Abans Bad Debt & ROI Calculator (Dynamic profit modeling)
-13. **Rollout Plan**: Colombo Pilot to 400+ Showrooms (3-Phase low-risk roadmap)
-14. **Executive Summary**: Abans Finance + Instalpay.lk: Zero Bad Debt, Scaled Sales
+13. **Institutional Climax**: The Financial Thesis: Unsecured Lending to Digital Collateral
+14. **Rollout Plan**: Colombo Pilot to 400+ Showrooms (3-Phase low-risk roadmap)
+15. **Executive Summary**: Abans Finance + Instalpay.lk: Zero Bad Debt, Scaled Sales
 
 ---
 
