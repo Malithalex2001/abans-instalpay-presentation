@@ -39,7 +39,7 @@
       color: var(--text-main);
       background: #F8FAFC;
       line-height: 1.55;
-      font-size: 13.5px;
+      font-size: 13px;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -64,7 +64,7 @@
       padding: 8px 18px;
       border-radius: 8px;
       font-weight: 700;
-      font-size: 13.5px;
+      font-size: 13px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -78,7 +78,7 @@
       max-width: 900px;
       margin: 24px auto;
       background: #FFFFFF;
-      padding: 48px 56px;
+      padding: 44px 52px;
       box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
       border-radius: 4px;
       border: 1px solid var(--border);
@@ -87,19 +87,21 @@
     /* Header & Logos */
     .doc-header {
       border-bottom: 2px solid var(--primary);
-      padding-bottom: 20px;
-      margin-bottom: 24px;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
     }
     .brand-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
     .brand-group {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
     .abans-badge {
       border: 1.5px solid var(--abans-red);
@@ -120,11 +122,11 @@
       color: #1E293B;
     }
     .logo-img {
-      height: 28px;
+      height: 26px;
       width: auto;
       display: block;
     }
-    .indigo-box {
+    .zntra-box {
       border: 1px solid var(--border);
       padding: 4px 10px;
       border-radius: 6px;
@@ -133,10 +135,17 @@
       gap: 8px;
       background: #F8FAFC;
     }
+    .partner-pill {
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: #F8FAFC;
+      line-height: 1.15;
+    }
     .doc-meta-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 10px;
       background: #F8FAFC;
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -153,35 +162,32 @@
 
     /* Section Headings */
     h1 {
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 800;
       color: #0F172A;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       letter-spacing: -0.02em;
     }
     .doc-subtitle {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--text-muted);
       margin-bottom: 12px;
     }
     h2 {
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 800;
       color: var(--primary);
       text-transform: uppercase;
       letter-spacing: 0.03em;
       border-bottom: 1.5px solid var(--primary-border);
-      padding-bottom: 5px;
-      margin: 22px 0 10px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      padding-bottom: 4px;
+      margin: 20px 0 8px 0;
     }
     h3 {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 700;
       color: #1E293B;
-      margin: 12px 0 6px 0;
+      margin: 10px 0 5px 0;
     }
     p { margin-bottom: 8px; }
 
@@ -189,7 +195,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 10px 0 16px 0;
+      margin: 8px 0 14px 0;
       font-size: 12px;
     }
     th {
@@ -197,14 +203,14 @@
       color: #1E293B;
       font-weight: 700;
       text-align: left;
-      padding: 8px 10px;
+      padding: 7px 10px;
       border: 1px solid var(--border);
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
     td {
-      padding: 7px 10px;
+      padding: 6px 10px;
       border: 1px solid var(--border);
       vertical-align: middle;
     }
@@ -218,7 +224,7 @@
       border: 1px solid #A7F3D0;
       font-weight: 800;
       font-size: 10px;
-      padding: 2px 8px;
+      padding: 2px 7px;
       border-radius: 4px;
     }
     .badge-gap {
@@ -243,20 +249,13 @@
     }
 
     /* Cards & Boxes */
-    .highlight-card {
-      background: var(--primary-light);
-      border: 1px solid var(--primary-border);
-      border-radius: 8px;
-      padding: 12px 16px;
-      margin: 10px 0 14px 0;
-    }
     .callout-box {
       background: #FFFBEB;
       border: 1px solid #FCD34D;
       border-left: 4px solid #F59E0B;
       padding: 10px 14px;
       border-radius: 6px;
-      margin: 12px 0;
+      margin: 10px 0;
       font-size: 12px;
     }
 
@@ -264,38 +263,33 @@
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin: 10px 0;
+      gap: 12px;
+      margin: 8px 0;
     }
     .pathway-card {
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 12px 14px;
+      padding: 10px 12px;
       background: #FFFFFF;
-    }
-    .pathway-card.active-path {
       border-top: 3px solid var(--primary);
     }
     .pathway-card h4 {
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 800;
       color: #0F172A;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .pathway-card ul {
       padding-left: 16px;
       font-size: 11.5px;
       color: var(--text-muted);
-      line-height: 1.45;
+      line-height: 1.4;
     }
 
     /* Scorecard Table */
-    .scorecard-table td {
-      padding: 6px 10px;
-    }
     .check-box-ui {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       border: 1.5px solid #0F172A;
       border-radius: 3px;
       display: inline-block;
@@ -305,37 +299,37 @@
 
     /* Sign-off Blocks */
     .signoff-section {
-      margin-top: 28px;
+      margin-top: 22px;
       border-top: 2px solid #0F172A;
-      padding-top: 16px;
+      padding-top: 14px;
       page-break-inside: avoid;
     }
     .signoff-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
     }
     .signoff-box {
       border: 1px dashed var(--border-dark);
-      padding: 14px;
+      padding: 10px 12px;
       border-radius: 6px;
       background: #FAFAFA;
     }
     .signoff-line {
-      margin-top: 28px;
+      margin-top: 24px;
       border-top: 1px solid #0F172A;
       padding-top: 4px;
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--text-dim);
     }
 
     /* Footer */
     .doc-footer {
       border-top: 1px solid var(--border);
-      margin-top: 24px;
-      padding-top: 10px;
-      font-size: 10px;
+      margin-top: 20px;
+      padding-top: 8px;
+      font-size: 9.5px;
       color: var(--text-dim);
       display: flex;
       justify-content: space-between;
@@ -348,7 +342,7 @@
       .print-bar { display: none !important; }
       .doc-page {
         margin: 0;
-        padding: 20px 24px;
+        padding: 16px 20px;
         box-shadow: none;
         border: none;
         max-width: 100%;
@@ -386,12 +380,21 @@
           <!-- Instalpay Full Logo -->
           <img src="logo-full.png" alt="Instalpay.lk" class="logo-img" />
         </div>
-        <!-- Indigo Mobile Operating Entity -->
-        <div class="indigo-box">
-          <img src="indigo-mobile-logo.png" alt="Indigo Mobile" style="height: 22px; width: auto; border-radius: 2px;" />
-          <div style="line-height: 1.1;">
-            <div style="font-weight: 800; font-size: 11px; color: #0F172A;">Indigo Mobile</div>
-            <div style="font-size: 8.5px; color: #64748B; font-weight: 700; text-transform: uppercase;">Pvt Ltd · Operating Partner</div>
+
+        <!-- Official Entities: Zntra Labs & Operating Partner -->
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <!-- Zntra Labs Official Distributor & Agency -->
+          <div class="zntra-box">
+            <img src="download.png" alt="Zntra Labs" style="height: 22px; width: auto; border-radius: 2px; display: block;" />
+            <div style="line-height: 1.15;">
+              <div style="font-weight: 800; font-size: 11px; color: #0F172A;">Zntra Labs</div>
+              <div style="font-size: 8px; color: #64748B; font-weight: 700; text-transform: uppercase;">Official Distributor & Agency</div>
+            </div>
+          </div>
+          <!-- Partner Operating Entity -->
+          <div class="partner-pill">
+            <div style="font-weight: 800; font-size: 11px; color: #0F172A;">Indigo Mobile (Pvt) Ltd</div>
+            <div style="font-size: 8px; color: #64748B; font-weight: 700; text-transform: uppercase;">Operating Partner</div>
           </div>
         </div>
       </div>
@@ -409,12 +412,12 @@
           <span>Abans Finance PLC</span>
         </div>
         <div class="meta-item">
-          <strong>Technology Suite</strong>
-          <span>Instalpay.lk Enterprise DPC</span>
+          <strong>Official Distributor</strong>
+          <span>Zntra Labs</span>
         </div>
         <div class="meta-item">
-          <strong>Evaluation Date</strong>
-          <span>September 2026</span>
+          <strong>Operating Partner</strong>
+          <span>Indigo Mobile (Pvt) Ltd</span>
         </div>
       </div>
     </header>
@@ -433,17 +436,17 @@
       <p>To support all showroom operations, the platform provides two distinct deployment pathways:</p>
       
       <div class="grid-2">
-        <div class="pathway-card active-path">
+        <div class="pathway-card">
           <h4>Pathway A: Out-of-Box QR Provisioning</h4>
           <ul>
             <li><strong>When Used:</strong> Brand new unboxed smartphones at showroom counter.</li>
-            <li><strong>Execution:</strong> 6 quick taps on Android Welcome Screen $\to$ Scan Cashier QR.</li>
+            <li><strong>Execution:</strong> 6 quick taps on Android Welcome Screen &rarr; Scan Cashier QR.</li>
             <li><strong>Duration:</strong> <code>&lt; 60 Seconds</code> end-to-end.</li>
             <li><strong>Privilege:</strong> Full Google Device Policy Controller (DPC) Device Owner.</li>
           </ul>
         </div>
 
-        <div class="pathway-card active-path">
+        <div class="pathway-card">
           <h4>Pathway B: Post-Setup APK Installation</h4>
           <ul>
             <li><strong>When Used:</strong> Handsets already configured, pre-activated, or in-use.</li>
@@ -486,7 +489,7 @@
           </tr>
           <tr>
             <td class="col-bold">Level 1 Warning</td>
-            <td>Discreet notification messages only. App remains <strong>100% hidden</strong>; phone usable.</td>
+            <td>Discreet notification / push alert messages only. App remains <strong>100% hidden</strong>; phone usable.</td>
             <td class="col-center"><span class="badge-pass">100% ACTIVE</span></td>
           </tr>
           <tr>
@@ -506,7 +509,7 @@
           </tr>
           <tr>
             <td class="col-bold">Guarantor Alerts</td>
-            <td>Guarantors receive no SMS (alerts delivered strictly to primary borrower).</td>
+            <td>Guarantors receive no notifications (alerts delivered strictly to primary borrower).</td>
             <td class="col-center"><span class="badge-gap">NOT IN BASELINE</span></td>
           </tr>
           <tr>
@@ -583,7 +586,7 @@
           <tr>
             <td class="col-center">05</td>
             <td><strong>Level 1 Hidden Warning</strong></td>
-            <td>SMS/push alert sent; app remains 100% hidden.</td>
+            <td>Notification / Push alert sent; app remains 100% hidden.</td>
             <td><span class="check-box-ui"></span> Verified</td>
           </tr>
           <tr>
@@ -625,25 +628,32 @@
 
       <div class="signoff-grid">
         <div class="signoff-box">
-          <strong style="font-size: 12px; color: #0F172A;">DEMONSTRATION CONDUCTED BY:</strong>
-          <div style="margin-top: 8px; font-size: 12px; font-weight: 700; color: var(--primary);">Indigo Mobile (Pvt) Ltd</div>
-          <div style="font-size: 11px; color: var(--text-dim);">Lead Systems Architect / Presenter</div>
-          <div class="signoff-line">Signature: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ____/____/2026</div>
+          <strong style="font-size: 11px; color: #0F172A;">OFFICIAL DISTRIBUTOR & AGENCY:</strong>
+          <div style="margin-top: 6px; font-size: 11.5px; font-weight: 700; color: var(--primary);">Zntra Labs</div>
+          <div style="font-size: 10px; color: var(--text-dim);">Software Agency & Distribution Lead</div>
+          <div class="signoff-line">Signature: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ____/____/2026</div>
         </div>
 
         <div class="signoff-box">
-          <strong style="font-size: 12px; color: #0F172A;">EVALUATED & WITNESSED BY:</strong>
-          <div style="margin-top: 8px; font-size: 12px; font-weight: 700; color: #0F172A;">Abans Finance PLC</div>
-          <div style="font-size: 11px; color: var(--text-dim);">Chief Information Officer / Head of Credit Risk</div>
-          <div class="signoff-line">Signature: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ____/____/2026</div>
+          <strong style="font-size: 11px; color: #0F172A;">OPERATING PARTNER:</strong>
+          <div style="margin-top: 6px; font-size: 11.5px; font-weight: 700; color: var(--primary);">Indigo Mobile (Pvt) Ltd</div>
+          <div style="font-size: 10px; color: var(--text-dim);">Lead Systems Architect</div>
+          <div class="signoff-line">Signature: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ____/____/2026</div>
+        </div>
+
+        <div class="signoff-box">
+          <strong style="font-size: 11px; color: #0F172A;">EVALUATED & WITNESSED BY:</strong>
+          <div style="margin-top: 6px; font-size: 11.5px; font-weight: 700; color: #0F172A;">Abans Finance PLC</div>
+          <div style="font-size: 10px; color: var(--text-dim);">Chief Information Officer / Head of Risk</div>
+          <div class="signoff-line">Signature: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ____/____/2026</div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="doc-footer">
-      <div>Platform: https://instalpay.lk · Admin: https://backoffice.instalpay.lk</div>
-      <div>Operating Entity: Indigo Mobile (Pvt) Ltd · Client: Abans Finance PLC</div>
+      <div>Platform: instalpay.lk · Admin: backoffice.instalpay.lk</div>
+      <div>Official Distributor: Zntra Labs · Operating Partner: Indigo Mobile (Pvt) Ltd · Client: Abans Finance PLC</div>
     </footer>
 
   </div>
