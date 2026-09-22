@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proof of Concept (PoC) Technical Validation Report — Abans Finance + Instalpay.lk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1E40AF;
+      --primary-light: #EFF6FF;
+      --primary-border: #BFDBFE;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-dim: #64748B;
+      --border: #E2E8F0;
+      --border-dark: #CBD5E1;
+      --success: #059669;
+      --success-bg: #ECFDF5;
+      --warning: #D97706;
+      --warning-bg: #FFFBEB;
+      --danger: #DC2626;
+      --danger-bg: #FEF2F2;
+      --abans-red: #E11925;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-main);
+      background: #F8FAFC;
+      line-height: 1.55;
+      font-size: 13.5px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Print Controls Bar */
+    .print-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .print-btn {
+      background: #2563EB;
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .print-btn:hover { background: #1D4ED8; }
+
+    /* Paper Container (A4 Standard) */
+    .doc-page {
+      max-width: 900px;
+      margin: 24px auto;
+      background: #FFFFFF;
+      padding: 48px 56px;
+      box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    /* Header & Logos */
+    .doc-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .abans-badge {
+      border: 1.5px solid var(--abans-red);
+      padding: 4px 12px;
+      border-radius: 6px;
+      text-align: center;
+      line-height: 1.1;
+    }
+    .abans-badge .title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--abans-red);
+      letter-spacing: 0.05em;
+    }
+    .abans-badge .sub {
+      font-size: 8px;
+      font-weight: 700;
+      color: #1E293B;
+    }
+    .logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+    .indigo-box {
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #F8FAFC;
+    }
+    .doc-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 11.5px;
+    }
+    .meta-item strong {
+      display: block;
+      color: var(--text-dim);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Section Headings */
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+    .doc-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border-bottom: 1.5px solid var(--primary-border);
+      padding-bottom: 5px;
+      margin: 22px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h3 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1E293B;
+      margin: 12px 0 6px 0;
+    }
+    p { margin-bottom: 8px; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 16px 0;
+      font-size: 12px;
+    }
+    th {
+      background: #F1F5F9;
+      color: #1E293B;
+      font-weight: 700;
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    td {
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    tr:nth-child(even) td { background: #F8FAFC; }
+    .col-center { text-align: center; }
+    .col-bold { font-weight: 700; }
+    .badge-pass {
+      display: inline-block;
+      background: var(--success-bg);
+      color: var(--success);
+      border: 1px solid #A7F3D0;
+      font-weight: 800;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .badge-gap {
+      display: inline-block;
+      background: #F1F5F9;
+      color: #64748B;
+      border: 1px solid #CBD5E1;
+      font-weight: 700;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .badge-future {
+      display: inline-block;
+      background: var(--warning-bg);
+      color: var(--warning);
+      border: 1px solid #FDE68A;
+      font-weight: 700;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Cards & Boxes */
+    .highlight-card {
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 10px 0 14px 0;
+    }
+    .callout-box {
+      background: #FFFBEB;
+      border: 1px solid #FCD34D;
+      border-left: 4px solid #F59E0B;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 12px;
+    }
+
+    /* Grid 2 Column */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 10px 0;
+    }
+    .pathway-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: #FFFFFF;
+    }
+    .pathway-card.active-path {
+      border-top: 3px solid var(--primary);
+    }
+    .pathway-card h4 {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 4px;
+    }
+    .pathway-card ul {
+      padding-left: 16px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Scorecard Table */
+    .scorecard-table td {
+      padding: 6px 10px;
+    }
+    .check-box-ui {
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid #0F172A;
+      border-radius: 3px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    /* Sign-off Blocks */
+    .signoff-section {
+      margin-top: 28px;
+      border-top: 2px solid #0F172A;
+      padding-top: 16px;
+      page-break-inside: avoid;
+    }
+    .signoff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 16px;
+    }
+    .signoff-box {
+      border: 1px dashed var(--border-dark);
+      padding: 14px;
+      border-radius: 6px;
+      background: #FAFAFA;
+    }
+    .signoff-line {
+      margin-top: 28px;
+      border-top: 1px solid #0F172A;
+      padding-top: 4px;
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    /* Footer */
+    .doc-footer {
+      border-top: 1px solid var(--border);
+      margin-top: 24px;
+      padding-top: 10px;
+      font-size: 10px;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Print Media Rules */
+    @media print {
+      body { background: #FFFFFF; }
+      .print-bar { display: none !important; }
+      .doc-page {
+        margin: 0;
+        padding: 20px 24px;
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+      }
+      .page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Print & Export Bar -->
+  <div class="print-bar">
+    <div>
+      <strong>Abans Finance PLC & Instalpay.lk</strong> — Official Technical Validation Report
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <!-- Document Paper Canvas -->
+  <div class="doc-page">
+
+    <!-- Document Header -->
+    <header class="doc-header">
+      <div class="brand-row">
+        <div class="brand-group">
+          <!-- Abans Finance Logo Badge -->
+          <div class="abans-badge">
+            <div class="title">ABANS</div>
+            <div class="sub">FINANCE</div>
+          </div>
+          <span style="font-size: 16px; color: #94A3B8; font-weight: bold;">+</span>
+          <!-- Instalpay Full Logo -->
+          <img src="logo-full.png" alt="Instalpay.lk" class="logo-img" />
+        </div>
+        <!-- Indigo Mobile Operating Entity -->
+        <div class="indigo-box">
+          <img src="indigo-mobile-logo.png" alt="Indigo Mobile" style="height: 22px; width: auto; border-radius: 2px;" />
+          <div style="line-height: 1.1;">
+            <div style="font-weight: 800; font-size: 11px; color: #0F172A;">Indigo Mobile</div>
+            <div style="font-size: 8.5px; color: #64748B; font-weight: 700; text-transform: uppercase;">Pvt Ltd · Operating Partner</div>
+          </div>
+        </div>
+      </div>
+
+      <h1>Proof of Concept (PoC) Technical Validation Report</h1>
+      <div class="doc-subtitle">Live Physical Demonstration, Device Ownership (DPC) Verification, & ERP Reconciliation Scorecard</div>
+
+      <div class="doc-meta-grid">
+        <div class="meta-item">
+          <strong>Document Ref</strong>
+          <span>IMP-ABF-POC-2026-V1</span>
+        </div>
+        <div class="meta-item">
+          <strong>Client Entity</strong>
+          <span>Abans Finance PLC</span>
+        </div>
+        <div class="meta-item">
+          <strong>Technology Suite</strong>
+          <span>Instalpay.lk Enterprise DPC</span>
+        </div>
+        <div class="meta-item">
+          <strong>Evaluation Date</strong>
+          <span>September 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: Purpose -->
+    <section>
+      <h2>1. Executive Purpose & Scope</h2>
+      <p>
+        This official evaluation document accompanies the live physical demonstration conducted for the leadership, Credit & Risk Committee, and IT Engineering department of <strong>Abans Finance PLC</strong>. It establishes verified proof of hardware-level locking, automated payment clearance, and enterprise security for smartphone financing across 400+ Abans showrooms.
+      </p>
+    </section>
+
+    <!-- Section 2: Enrollment Pathways -->
+    <section>
+      <h2>2. Device Enrollment Pathways</h2>
+      <p>To support all showroom operations, the platform provides two distinct deployment pathways:</p>
+      
+      <div class="grid-2">
+        <div class="pathway-card active-path">
+          <h4>Pathway A: Out-of-Box QR Provisioning</h4>
+          <ul>
+            <li><strong>When Used:</strong> Brand new unboxed smartphones at showroom counter.</li>
+            <li><strong>Execution:</strong> 6 quick taps on Android Welcome Screen $\to$ Scan Cashier QR.</li>
+            <li><strong>Duration:</strong> <code>&lt; 60 Seconds</code> end-to-end.</li>
+            <li><strong>Privilege:</strong> Full Google Device Policy Controller (DPC) Device Owner.</li>
+          </ul>
+        </div>
+
+        <div class="pathway-card active-path">
+          <h4>Pathway B: Post-Setup APK Installation</h4>
+          <ul>
+            <li><strong>When Used:</strong> Handsets already configured, pre-activated, or in-use.</li>
+            <li><strong>Execution:</strong> Direct APK deployment with Device Admin & Accessibility sync.</li>
+            <li><strong>Duration:</strong> <code>&lt; 90 Seconds</code> without factory wipe.</li>
+            <li><strong>Privilege:</strong> Secure Managed Device Administrator lock bridge.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Capability Audit -->
+    <section>
+      <h2>3. Technical Capability Audit (In-Hand vs. Gaps)</h2>
+      <p>A transparent breakdown of active baseline capabilities and demarcated roadmap specifications:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 28%;">Feature Domain</th>
+            <th style="width: 54%;">Technical Specification & Baseline Status</th>
+            <th style="width: 18%; text-align: center;">Verification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-bold">Showroom Enrollment</td>
+            <td>6-Tap Setup QR scan and post-setup APK installation active.</td>
+            <td class="col-center"><span class="badge-pass">100% ACTIVE</span></td>
+          </tr>
+          <tr>
+            <td class="col-bold">Recovery Wipe Block</td>
+            <td>Blocks factory reset bypass via bootloader recovery menu; auto-reenrolls.</td>
+            <td class="col-center"><span class="badge-pass">100% ACTIVE</span></td>
+          </tr>
+          <tr>
+            <td class="col-bold">Offline Lock Clock</td>
+            <td>30-Day monotonic cryptographic timer enforces lock even with SIM removed.</td>
+            <td class="col-center"><span class="badge-pass">100% ACTIVE</span></td>
+          </tr>
+          <tr>
+            <td class="col-bold">Level 1 Warning</td>
+            <td>Discreet notification messages only. App remains <strong>100% hidden</strong>; phone usable.</td>
+            <td class="col-center"><span class="badge-pass">100% ACTIVE</span></td>
+          </tr>
+          <tr>
+            <td class="col-bold">Level 2 Direct Lock</td>
+            <td>Direct device restriction with instant <em>Pay Now</em> & <em>Call Support</em> CTAs (No Level 3).</td>
+            <td class="col-center"><span class="badge-pass">100% ACTIVE</span></td>
+          </tr>
+          <tr>
+            <td class="col-bold">Auto-Unlock Speed</td>
+            <td>Sub-30 second instant unlock upon payment gateway webhook confirmation.</td>
+            <td class="col-center"><span class="badge-pass">100% ACTIVE</span></td>
+          </tr>
+          <tr>
+            <td class="col-bold">Central Battery Status</td>
+            <td>Fleet telemetry cannot monitor user battery levels (excluded for privacy).</td>
+            <td class="col-center"><span class="badge-gap">NOT IN BASELINE</span></td>
+          </tr>
+          <tr>
+            <td class="col-bold">Guarantor Alerts</td>
+            <td>Guarantors receive no SMS (alerts delivered strictly to primary borrower).</td>
+            <td class="col-center"><span class="badge-gap">NOT IN BASELINE</span></td>
+          </tr>
+          <tr>
+            <td class="col-bold">Multi-Branch Role Filters</td>
+            <td>Sub-admin role delegation and branch filters ready for future upgrade.</td>
+            <td class="col-center"><span class="badge-future">ROADMAP UPGRADE</span></td>
+          </tr>
+          <tr>
+            <td class="col-bold">Emergency 112 Dialer</td>
+            <td>112/119 emergency call pass-through ready for future regulatory activation.</td>
+            <td class="col-center"><span class="badge-future">ROADMAP UPGRADE</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Page Break for Printing -->
+    <div class="page-break"></div>
+
+    <!-- Section 4: Advanced OS Gateways -->
+    <section>
+      <h2>4. Advanced OS Gateways (Zero-Touch & Samsung Knox)</h2>
+      <p>
+        For pre-provisioning factory-sealed shipments at the hardware IMEI level, the platform supports <strong>Google Zero-Touch Enrollment (ZTE)</strong> and <strong>Samsung Knox Guard/Manage</strong>.
+      </p>
+
+      <div class="callout-box">
+        <strong>⚠️ Commercial Terms for External Gateways & Third-Party Integrations:</strong><br />
+        Deployment of OEM-level cloud gateways (Google Zero-Touch, Samsung Knox, or custom carrier SIM lock bridges) and bespoke core banking API connectors requires specialized third-party licenses and engineering middleware.
+        <br /><br />
+        <strong>Policy:</strong> If Abans Finance elects to implement Samsung Knox, Google Zero-Touch, or external ERP modifications, <strong>Abans Finance shall pay 100% in advance for quoted setup charges, OEM licensing fees, and custom development costs</strong> prior to commencement.
+      </div>
+    </section>
+
+    <!-- Section 5: Live Scorecard -->
+    <section>
+      <h2>5. Live Physical Demonstration Scorecard</h2>
+      <p>To be filled and signed during the hands-on hardware demonstration:</p>
+
+      <table class="scorecard-table">
+        <thead>
+          <tr>
+            <th style="width: 6%;">#</th>
+            <th style="width: 32%;">Test Scenario</th>
+            <th style="width: 44%;">Expected Criteria</th>
+            <th style="width: 18%; text-align: center;">Verified Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-center">01</td>
+            <td><strong>6-Tap Showroom QR Scan</strong></td>
+            <td>DPC installs invisibly in under 60 seconds.</td>
+            <td><span class="check-box-ui"></span> Verified</td>
+          </tr>
+          <tr>
+            <td class="col-center">02</td>
+            <td><strong>Post-Setup APK Install</strong></td>
+            <td>App installs on active phone without factory wipe.</td>
+            <td><span class="check-box-ui"></span> Verified</td>
+          </tr>
+          <tr>
+            <td class="col-center">03</td>
+            <td><strong>Recovery Wipe Block</strong></td>
+            <td>Bootloader factory reset triggers auto-reenrollment.</td>
+            <td><span class="check-box-ui"></span> Verified</td>
+          </tr>
+          <tr>
+            <td class="col-center">04</td>
+            <td><strong>Offline Lock Survival</strong></td>
+            <td>Monotonic hardware clock locks offline device.</td>
+            <td><span class="check-box-ui"></span> Verified</td>
+          </tr>
+          <tr>
+            <td class="col-center">05</td>
+            <td><strong>Level 1 Hidden Warning</strong></td>
+            <td>SMS/push alert sent; app remains 100% hidden.</td>
+            <td><span class="check-box-ui"></span> Verified</td>
+          </tr>
+          <tr>
+            <td class="col-center">06</td>
+            <td><strong>Level 2 Direct Lockout</strong></td>
+            <td>Screen locks down; displays Pay & Call buttons.</td>
+            <td><span class="check-box-ui"></span> Verified</td>
+          </tr>
+          <tr>
+            <td class="col-center">07</td>
+            <td><strong>Payment Gateway Recovery</strong></td>
+            <td>Webhook unlocks phone in &lt; 30 seconds.</td>
+            <td><span class="check-box-ui"></span> Verified</td>
+          </tr>
+          <tr>
+            <td class="col-center">08</td>
+            <td><strong>Financial Ledger Sync</strong></td>
+            <td>Transaction recorded in central ERP ledger.</td>
+            <td><span class="check-box-ui"></span> Verified</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section 6: Governance -->
+    <section>
+      <h2>6. Privacy & Security Governance (PDPA Compliance)</h2>
+      <p>
+        The platform operates under a <strong>Zero-Intrusion Privacy Model</strong> in full compliance with the <strong>Sri Lanka Personal Data Protection Act (PDPA) No. 9 of 2022</strong>. The system strictly isolates device locking telemetry from personal user data and never reads photos, messages, browsing history, or call records.
+      </p>
+    </section>
+
+    <!-- Section 7: Formal Sign-off -->
+    <section class="signoff-section">
+      <h2>7. Demonstration Sign-Off & Concurrence</h2>
+      <p style="font-size: 11.5px; color: var(--text-muted);">
+        By signing below, the authorized evaluators acknowledge that the physical capabilities and technical parameters detailed above were demonstrated and verified.
+      </p>
+
+      <div class="signoff-grid">
+        <div class="signoff-box">
+          <strong style="font-size: 12px; color: #0F172A;">DEMONSTRATION CONDUCTED BY:</strong>
+          <div style="margin-top: 8px; font-size: 12px; font-weight: 700; color: var(--primary);">Indigo Mobile (Pvt) Ltd</div>
+          <div style="font-size: 11px; color: var(--text-dim);">Lead Systems Architect / Presenter</div>
+          <div class="signoff-line">Signature: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ____/____/2026</div>
+        </div>
+
+        <div class="signoff-box">
+          <strong style="font-size: 12px; color: #0F172A;">EVALUATED & WITNESSED BY:</strong>
+          <div style="margin-top: 8px; font-size: 12px; font-weight: 700; color: #0F172A;">Abans Finance PLC</div>
+          <div style="font-size: 11px; color: var(--text-dim);">Chief Information Officer / Head of Credit Risk</div>
+          <div class="signoff-line">Signature: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: ____/____/2026</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="doc-footer">
+      <div>Platform: https://instalpay.lk · Admin: https://backoffice.instalpay.lk</div>
+      <div>Operating Entity: Indigo Mobile (Pvt) Ltd · Client: Abans Finance PLC</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
