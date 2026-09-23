@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Showroom Operational Guide — Abans Finance & Instalpay.lk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1A73E8;
+      --primary-dark: #1557B0;
+      --primary-light: #E8F0FE;
+      --primary-border: #D2E3FC;
+      --text-title: #202124;
+      --text-body: #3C4043;
+      --text-muted: #5F6368;
+      --border: #DADCE0;
+      --border-light: #E8EAED;
+      --bg-light: #F8F9FA;
+      --success: #188038;
+      --success-bg: #E6F4EA;
+      --warning: #E37400;
+      --warning-bg: #FEF7E0;
+      --abans-red: #E11925;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-body);
+      background: #F1F3F4;
+      line-height: 1.72;
+      font-size: 20px;
+      letter-spacing: 0.018em;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Floating Print Bar */
+    .print-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #202124;
+      color: #FFFFFF;
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .print-btn {
+      background: #1A73E8;
+      color: #FFFFFF;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s;
+    }
+    .print-btn:hover { background: #1557B0; }
+
+    /* Canvas / Paper Container */
+    .guide-page {
+      max-width: 960px;
+      margin: 32px auto;
+      background: #FFFFFF;
+      padding: 56px 64px;
+      box-shadow: 0 2px 20px rgba(60,64,67,0.08);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    /* Header */
+    .guide-header {
+      border-bottom: 2px solid var(--primary-border);
+      padding-bottom: 28px;
+      margin-bottom: 36px;
+    }
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .abans-badge {
+      border: 1.5px solid var(--abans-red);
+      padding: 4px 14px;
+      border-radius: 6px;
+      text-align: center;
+      line-height: 1.15;
+    }
+    .abans-badge .title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--abans-red);
+      letter-spacing: 0.05em;
+    }
+    .abans-badge .sub {
+      font-size: 9px;
+      font-weight: 700;
+      color: #202124;
+    }
+    .logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+    .partner-tag {
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h1 {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--text-title);
+      margin-bottom: 8px;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+    .guide-subtitle {
+      font-size: 21px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.55;
+    }
+
+    .meta-pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    /* Section & Steps */
+    h2 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-title);
+      margin: 40px 0 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: -0.015em;
+    }
+    .phase-badge {
+      background: var(--primary);
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 20px;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+
+    /* Step Blocks */
+    .step-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.2s;
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .step-num {
+      width: 38px;
+      height: 38px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.01em;
+    }
+    .step-desc {
+      font-size: 19px;
+      color: var(--text-body);
+      line-height: 1.72;
+      margin-left: 52px;
+    }
+
+    /* Screenshot Embeds */
+    .ui-preview-box {
+      margin: 16px 0 12px 52px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(60,64,67,0.08);
+      background: #FFFFFF;
+    }
+    .ui-preview-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .ui-caption {
+      background: var(--bg-light);
+      padding: 8px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* Callout & Tips */
+    .callout {
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 20px 0;
+      font-size: 19px;
+      line-height: 1.68;
+    }
+    .callout-blue {
+      background: var(--primary-light);
+      border-left: 5px solid var(--primary);
+      color: var(--primary-dark);
+    }
+    .callout-green {
+      background: var(--success-bg);
+      border-left: 5px solid var(--success);
+      color: #0D652D;
+    }
+    .callout-amber {
+      background: var(--warning-bg);
+      border-left: 5px solid var(--warning);
+      color: #8A3800;
+    }
+
+    /* Highlight Key Points */
+    .key-tag {
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+    }
+
+    /* FAQ Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    th {
+      background: var(--bg-light);
+      color: var(--text-title);
+      font-weight: 800;
+      text-align: left;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      font-size: 17px;
+    }
+    td {
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    tr:nth-child(even) td { background: #FAFAFA; }
+
+    /* Footer */
+    .guide-footer {
+      border-top: 2px solid var(--border);
+      margin-top: 48px;
+      padding-top: 20px;
+      font-size: 15px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Print Break Handling */
+    @media print {
+      body { background: #FFFFFF; font-size: 16px; }
+      .print-bar { display: none !important; }
+      .guide-page {
+        margin: 0;
+        padding: 16px 20px;
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+      }
+      .step-desc { font-size: 16px; margin-left: 0; }
+      .ui-preview-box { margin-left: 0; }
+      .page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="print-bar">
+    <div>
+      <strong>Abans Finance PLC & Instalpay.lk</strong> — Showroom Operational Handbook
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <!-- Document Body Canvas -->
+  <div class="guide-page">
+
+    <!-- Header & Brand Lockup -->
+    <header class="guide-header">
+      <div class="brand-row">
+        <div class="brand-group">
+          <!-- Abans Finance Badge -->
+          <div class="abans-badge">
+            <div class="title">ABANS</div>
+            <div class="sub">FINANCE</div>
+          </div>
+          <span style="font-size: 20px; color: #9AA0A6; font-weight: bold;">+</span>
+          <!-- Instalpay Full Logo -->
+          <img src="logo-full.png" alt="Instalpay.lk" class="logo-img" />
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <!-- Zntra Labs Official Distributor & Agency -->
+          <div class="partner-tag">
+            <img src="download.png" alt="Zntra Labs" style="height: 22px; width: auto; border-radius: 2px;" />
+            <div style="line-height: 1.15;">
+              <div style="font-weight: 800; font-size: 13px; color: var(--text-title);">Zntra Labs</div>
+              <div style="font-size: 9.5px; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Official Distributor & Agency</div>
+            </div>
+          </div>
+
+          <!-- Operating Partner -->
+          <div class="partner-tag">
+            <div style="line-height: 1.15;">
+              <div style="font-weight: 800; font-size: 13px; color: var(--text-title);">Indigo Mobile (Pvt) Ltd</div>
+              <div style="font-size: 9.5px; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Operating Partner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1>Showroom Operational Guide: Customer Onboarding & 60s Phone Provisioning</h1>
+      <div class="guide-subtitle">A simple step-by-step cashier handbook for zero-risk smartphone financing across 400+ Abans Showrooms.</div>
+
+      <div class="meta-pills">
+        <span class="pill">⏱️ Setup Duration: &lt; 60 Seconds</span>
+        <span class="pill">📶 Wi-Fi Automatic Bundling</span>
+        <span class="pill">🔒 Google DPC Ownership</span>
+        <span class="pill">💳 Sub-30s Payment Auto-Unlock</span>
+      </div>
+    </header>
+
+    <!-- Phase 0: One-Time Shop Wi-Fi Setup -->
+    <section>
+      <h2><span class="phase-badge">Phase 01</span> One-Time Showroom Wi-Fi Setup (5 Minutes)</h2>
+      <p>
+        Before onboarding customer devices, configure your showroom Wi-Fi inside the Instalpay Backoffice. When you scan the enrollment QR code on a new smartphone, the phone will <strong>automatically connect to your shop Wi-Fi without typing passwords</strong>.
+      </p>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Open "Wi-Fi Setup" in the Left Sidebar</div>
+        </div>
+        <div class="step-desc">
+          Log in to your showroom admin panel at <span class="key-tag">backoffice.instalpay.lk</span> and click on the <strong>Wi-Fi Setup</strong> tab.
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-title">Enter Wi-Fi Credentials & Save</div>
+        </div>
+        <div class="step-desc">
+          Enter your showroom Wi-Fi network name (SSID) and Password. Select <strong>WPA</strong> as the security type and click <strong>Save Wi-Fi Settings</strong>.
+          <div class="ui-preview-box">
+            <img src="guide-wifi-setup.png" alt="Wi-Fi Configuration Panel" />
+            <div class="ui-caption">Figure 1: Showroom Wi-Fi credentials bundled automatically into enrollment QR codes.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-green">
+        💡 <strong>Pro Tip for Cashiers:</strong> You only need to configure this once per showroom. All subsequent customer unboxings will connect automatically to this saved network!
+      </div>
+    </section>
+
+    <!-- Phase 1: Customer Onboarding -->
+    <section>
+      <h2><span class="phase-badge">Phase 02</span> Customer Registration & Installment Plan (30 Seconds)</h2>
+      <p>
+        When a customer selects a smartphone for hire-purchase financing, create their agreement profile in three quick steps:
+      </p>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Click "+ Onboard New Phone"</div>
+        </div>
+        <div class="step-desc">
+          From the main Dashboard, click the blue <strong>+ Onboard New Phone</strong> button in the top right corner.
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-title">Enter Customer & Guarantor Details</div>
+        </div>
+        <div class="step-desc">
+          Fill in the customer's <strong>Full Name</strong>, <strong>NIC Number</strong>, <strong>Mobile Number</strong>, and <strong>Residential Address</strong>. (Guarantor fields are optional).
+          <div class="ui-preview-box">
+            <img src="guide-customer-modal.png" alt="Customer Registration Modal" />
+            <div class="ui-caption">Figure 2: Fast 3-step customer registration wizard.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">3</div>
+          <div class="step-title">Set Installment Terms & Generate QR</div>
+        </div>
+        <div class="step-desc">
+          Click <strong>Next: Installment Plan</strong>, select the device retail price, initial down payment, and monthly tenure (e.g., 6 or 12 Months). Click <strong>Create & Generate QR</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- Page Break for Clean Printing -->
+    <div class="page-break"></div>
+
+    <!-- Phase 2: Hardware Provisioning -->
+    <section>
+      <h2><span class="phase-badge">Phase 03</span> 60-Second Smartphone Hardware Enrollment</h2>
+      <p>
+        Now take the customer's new, unboxed smartphone and perform the 6-tap Google DPC handshake:
+      </p>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Power On the New Smartphone</div>
+        </div>
+        <div class="step-desc">
+          Turn on the brand new smartphone until you reach the initial <strong>Android Welcome Screen</strong> (displaying "Start" or "Hello").
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-title">Tap 6 Times Anywhere on the Screen</div>
+        </div>
+        <div class="step-desc">
+          <strong>Tap 6 times rapidly on any blank white space</strong> of the welcome screen. The phone will beep and launch the built-in Android Enterprise QR scanner.
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">3</div>
+          <div class="step-title">Scan the Onboarding QR Code</div>
+        </div>
+        <div class="step-desc">
+          Point the phone's camera at the <strong>Onboarding QR Code</strong> on your cashier computer screen. The phone will:
+          <ul style="margin: 10px 0 10px 24px; line-height: 1.6;">
+            <li>Automatically connect to your showroom Wi-Fi.</li>
+            <li>Silently download the Instalpay Device Policy Controller (DPC).</li>
+            <li>Register its hardware IMEI with Abans Finance backend.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">4</div>
+          <div class="step-title">Complete Setup & Hand Over Device</div>
+        </div>
+        <div class="step-desc">
+          Tap <strong>Accept & Continue</strong>. The phone is now 100% active, protected against factory resets, and ready to be handed to the happy customer!
+        </div>
+      </div>
+
+      <div class="callout callout-blue">
+        📌 <strong>Pathway B (Post-Setup APK Installation):</strong> If a customer is enrolling a phone that is already turned on and configured, simply download the Instalpay APK directly from <span class="key-tag">backoffice.instalpay.lk/app</span> and activate Device Admin permissions in under 90 seconds without a factory reset.
+      </div>
+    </section>
+
+    <!-- Phase 3: Collections & Recovery -->
+    <section>
+      <h2><span class="phase-badge">Phase 04</span> Payment Settlement & Sub-30s Auto-Unlock</h2>
+      <p>
+        How the system handles monthly installments and ensures seamless customer satisfaction:
+      </p>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Level 1: Gentle Reminder Alerts (App is 100% Hidden)</div>
+        </div>
+        <div class="step-desc">
+          3 days before due date, the customer receives gentle notification alerts. The app remains <strong>completely hidden in the background</strong> and the phone is 100% usable.
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-title">Level 2: Direct Device Restriction (If Overdue)</div>
+        </div>
+        <div class="step-desc">
+          If an installment is unpaid at the cutoff, the screen temporarily locks down access and displays balance details with two instant buttons: <strong>Pay Instantly</strong> and <strong>Call Support</strong>.
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">3</div>
+          <div class="step-title">Sub-30s Instant Auto-Unlock</div>
+        </div>
+        <div class="step-desc">
+          The customer can pay via:
+          <ul style="margin: 8px 0 8px 24px; line-height: 1.6;">
+            <li><strong>Showroom Cashier POS</strong> (Cash / Debit / Credit Card)</li>
+            <li><strong>Online Payment Gateway</strong> on their locked phone</li>
+            <li><strong>LankaPay CEFT / JustPay</strong> direct bank transfer</li>
+          </ul>
+          The moment payment is confirmed, the system sends an instant webhook and <strong>the phone unlocks in under 30 seconds automatically</strong> with zero staff effort!
+        </div>
+      </div>
+    </section>
+
+    <!-- Cashier Reference FAQ -->
+    <section>
+      <h2><span class="phase-badge">Reference</span> Cashier Troubleshooting & Emergency FAQ</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 32%;">Situation</th>
+            <th style="width: 68%;">Immediate Cashier Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Phone doesn't beep after 6 taps?</strong></td>
+            <td>Make sure you are on the very first "Start/Hello" screen. Tap quickly 6 times in the middle of the screen.</td>
+          </tr>
+          <tr>
+            <td><strong>Wi-Fi connection fails during QR scan?</strong></td>
+            <td>Check that your shop Wi-Fi credentials under <em>Wi-Fi Setup</em> match your router password exactly.</td>
+          </tr>
+          <tr>
+            <td><strong>Customer paid at counter but phone is still restricted?</strong></td>
+            <td>In Backoffice, go to <em>Devices</em>, find the customer's IMEI, and click <strong>Force Unlock / Refresh Sync</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Customer wants to change their SIM card?</strong></td>
+            <td>The customer is completely free to use any SIM card (Dialog, Mobitel, Airtel, Hutch). Lock protection stays fully intact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="guide-footer">
+      <div>Platform: instalpay.lk · Backoffice: backoffice.instalpay.lk</div>
+      <div>Official Distributor: Zntra Labs · Operating Partner: Indigo Mobile (Pvt) Ltd · Client: Abans Finance PLC</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
