@@ -23,6 +23,8 @@
       --success-bg: #E6F4EA;
       --warning: #E37400;
       --warning-bg: #FEF7E0;
+      --danger: #D93025;
+      --danger-bg: #FCE8E6;
       --abans-red: #E11925;
       --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -38,7 +40,7 @@
       font-family: var(--font-main);
       color: var(--text-body);
       background: #F1F3F4;
-      line-height: 1.72;
+      line-height: 1.74;
       font-size: 20px;
       letter-spacing: 0.018em;
       -webkit-print-color-adjust: exact;
@@ -76,7 +78,7 @@
 
     /* Canvas / Paper Container */
     .guide-page {
-      max-width: 960px;
+      max-width: 980px;
       margin: 32px auto;
       background: #FFFFFF;
       padding: 56px 64px;
@@ -171,7 +173,7 @@
       font-size: 26px;
       font-weight: 800;
       color: var(--text-title);
-      margin: 40px 0 16px 0;
+      margin: 44px 0 16px 0;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -191,7 +193,7 @@
     p {
       margin-bottom: 16px;
       font-size: 20px;
-      line-height: 1.75;
+      line-height: 1.74;
       color: var(--text-body);
     }
 
@@ -211,8 +213,8 @@
       margin-bottom: 12px;
     }
     .step-num {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       background: var(--primary);
       color: #FFFFFF;
       border-radius: 50%;
@@ -220,7 +222,7 @@
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 18px;
+      font-size: 19px;
       flex-shrink: 0;
     }
     .step-title {
@@ -230,15 +232,15 @@
       letter-spacing: -0.01em;
     }
     .step-desc {
-      font-size: 19px;
+      font-size: 19.5px;
       color: var(--text-body);
       line-height: 1.72;
-      margin-left: 52px;
+      margin-left: 54px;
     }
 
     /* Screenshot Embeds */
     .ui-preview-box {
-      margin: 16px 0 12px 52px;
+      margin: 16px 0 12px 0;
       border: 1px solid var(--border);
       border-radius: 10px;
       overflow: hidden;
@@ -262,10 +264,10 @@
     /* Callout & Tips */
     .callout {
       border-radius: 10px;
-      padding: 18px 22px;
-      margin: 20px 0;
-      font-size: 19px;
-      line-height: 1.68;
+      padding: 20px 24px;
+      margin: 22px 0;
+      font-size: 19.5px;
+      line-height: 1.7;
     }
     .callout-blue {
       background: var(--primary-light);
@@ -282,6 +284,11 @@
       border-left: 5px solid var(--warning);
       color: #8A3800;
     }
+    .callout-red {
+      background: var(--danger-bg);
+      border-left: 5px solid var(--danger);
+      color: #A50E0E;
+    }
 
     /* Highlight Key Points */
     .key-tag {
@@ -291,7 +298,17 @@
       padding: 2px 8px;
       border-radius: 4px;
       font-family: var(--font-mono);
-      font-size: 18px;
+      font-size: 18.5px;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 10px 0 14px 28px;
+      font-size: 19.5px;
+      line-height: 1.7;
+    }
+    li {
+      margin-bottom: 8px;
     }
 
     /* FAQ Table */
@@ -299,7 +316,7 @@
       width: 100%;
       border-collapse: collapse;
       margin: 20px 0;
-      font-size: 18px;
+      font-size: 18.5px;
     }
     th {
       background: var(--bg-light);
@@ -314,7 +331,7 @@
       padding: 12px 16px;
       border: 1px solid var(--border);
       vertical-align: top;
-      line-height: 1.6;
+      line-height: 1.62;
     }
     tr:nth-child(even) td { background: #FAFAFA; }
 
@@ -400,55 +417,62 @@
       </div>
 
       <h1>Showroom Operational Guide: Customer Onboarding & 60s Phone Provisioning</h1>
-      <div class="guide-subtitle">A simple step-by-step cashier handbook for zero-risk smartphone financing across 400+ Abans Showrooms.</div>
+      <div class="guide-subtitle">A comprehensive, humanized cashier handbook for zero-risk smartphone financing across 400+ Abans Showrooms.</div>
 
       <div class="meta-pills">
-        <span class="pill">⏱️ Setup Duration: &lt; 60 Seconds</span>
+        <span class="pill">⏱️ Setup Duration: 45–60 Seconds</span>
         <span class="pill">📶 Wi-Fi Automatic Bundling</span>
         <span class="pill">🔒 Google DPC Ownership</span>
         <span class="pill">💳 Sub-30s Payment Auto-Unlock</span>
+        <span class="pill">🔓 48-Hour Emergency Bypass</span>
       </div>
     </header>
 
-    <!-- Phase 0: One-Time Shop Wi-Fi Setup -->
+    <!-- Phase 01: One-Time Shop Wi-Fi Setup & Getting SSID -->
     <section>
-      <h2><span class="phase-badge">Phase 01</span> One-Time Showroom Wi-Fi Setup (5 Minutes)</h2>
+      <h2><span class="phase-badge">Phase 01</span> Showroom Wi-Fi Setup & How to Get the Correct SSID</h2>
       <p>
-        Before onboarding customer devices, configure your showroom Wi-Fi inside the Instalpay Backoffice. When you scan the enrollment QR code on a new smartphone, the phone will <strong>automatically connect to your shop Wi-Fi without typing passwords</strong>.
+        Before onboarding customer devices, you must register your showroom's Wi-Fi network inside the Instalpay Backoffice. When you scan the enrollment QR code on a fresh smartphone, the phone will <strong>automatically read these credentials and connect to the internet with zero manual typing</strong>.
       </p>
 
       <div class="step-card">
         <div class="step-header">
           <div class="step-num">1</div>
-          <div class="step-title">Open "Wi-Fi Setup" in the Left Sidebar</div>
+          <div class="step-title">How to Find Your Correct Showroom SSID</div>
         </div>
         <div class="step-desc">
-          Log in to your showroom admin panel at <span class="key-tag">backoffice.instalpay.lk</span> and click on the <strong>Wi-Fi Setup</strong> tab.
+          Look at your showroom router label or check the connected Wi-Fi name on your cashier PC/laptop:
+          <ul>
+            <li><strong>Exact Name (SSID):</strong> Must match letter-for-letter including capitalization (e.g., <span class="key-tag">sltfiber</span> or <span class="key-tag">Abans_Showroom_POS</span>).</li>
+            <li><strong>Password:</strong> Enter the exact Wi-Fi password (case-sensitive).</li>
+            <li><strong>Security Type:</strong> Select <strong>WPA</strong> (matches WPA / WPA2 / WPA3 on modern routers).</li>
+          </ul>
         </div>
       </div>
 
       <div class="step-card">
         <div class="step-header">
           <div class="step-num">2</div>
-          <div class="step-title">Enter Wi-Fi Credentials & Save</div>
+          <div class="step-title">Save in Backoffice "Wi-Fi Setup" Tab</div>
         </div>
         <div class="step-desc">
-          Enter your showroom Wi-Fi network name (SSID) and Password. Select <strong>WPA</strong> as the security type and click <strong>Save Wi-Fi Settings</strong>.
+          Navigate to <span class="key-tag">backoffice.instalpay.lk</span> &rarr; Click <strong>Wi-Fi Setup</strong> in the left sidebar &rarr; Enter your credentials &rarr; Click <strong>Save Wi-Fi Settings</strong>.
           <div class="ui-preview-box">
             <img src="guide-wifi-setup.png" alt="Wi-Fi Configuration Panel" />
-            <div class="ui-caption">Figure 1: Showroom Wi-Fi credentials bundled automatically into enrollment QR codes.</div>
+            <div class="ui-caption">Figure 1: Wi-Fi credentials stored securely and bundled into all future enrollment QR codes.</div>
           </div>
         </div>
       </div>
 
-      <div class="callout callout-green">
-        💡 <strong>Pro Tip for Cashiers:</strong> You only need to configure this once per showroom. All subsequent customer unboxings will connect automatically to this saved network!
+      <div class="callout callout-amber">
+        ⚠️ <strong>Important Mistake to Avoid (Captive Portal Networks):</strong><br />
+        Do <strong>not</strong> use public or guest Wi-Fi networks that require opening a web browser to enter a voucher code or click "Agree". The smartphone needs direct WPA2 internet access during initial setup to download the security suite silently.
       </div>
     </section>
 
-    <!-- Phase 1: Customer Onboarding -->
+    <!-- Phase 02: Customer Onboarding -->
     <section>
-      <h2><span class="phase-badge">Phase 02</span> Customer Registration & Installment Plan (30 Seconds)</h2>
+      <h2><span class="phase-badge">Phase 02</span> Customer Registration & Installment Plan Creation</h2>
       <p>
         When a customer selects a smartphone for hire-purchase financing, create their agreement profile in three quick steps:
       </p>
@@ -466,13 +490,13 @@
       <div class="step-card">
         <div class="step-header">
           <div class="step-num">2</div>
-          <div class="step-title">Enter Customer & Guarantor Details</div>
+          <div class="step-title">Enter Customer & Agreement Details</div>
         </div>
         <div class="step-desc">
-          Fill in the customer's <strong>Full Name</strong>, <strong>NIC Number</strong>, <strong>Mobile Number</strong>, and <strong>Residential Address</strong>. (Guarantor fields are optional).
+          Fill in the customer's <strong>Full Name</strong>, <strong>NIC Number</strong>, <strong>Mobile Number</strong>, and <strong>Residential Address</strong>. (Guarantor details are optional).
           <div class="ui-preview-box">
             <img src="guide-customer-modal.png" alt="Customer Registration Modal" />
-            <div class="ui-caption">Figure 2: Fast 3-step customer registration wizard.</div>
+            <div class="ui-caption">Figure 2: 3-step customer registration wizard.</div>
           </div>
         </div>
       </div>
@@ -480,10 +504,10 @@
       <div class="step-card">
         <div class="step-header">
           <div class="step-num">3</div>
-          <div class="step-title">Set Installment Terms & Generate QR</div>
+          <div class="step-title">Configure Installment Terms & Generate QR</div>
         </div>
         <div class="step-desc">
-          Click <strong>Next: Installment Plan</strong>, select the device retail price, initial down payment, and monthly tenure (e.g., 6 or 12 Months). Click <strong>Create & Generate QR</strong>.
+          Click <strong>Next: Installment Plan</strong> &rarr; Select the phone retail price &rarr; Choose down payment and monthly tenure (e.g., 6, 9, or 12 Months) &rarr; Click <strong>Create & Generate Onboarding QR</strong>.
         </div>
       </div>
     </section>
@@ -491,30 +515,32 @@
     <!-- Page Break for Clean Printing -->
     <div class="page-break"></div>
 
-    <!-- Phase 2: Hardware Provisioning -->
+    <!-- Phase 03: Hardware Provisioning, 6-Taps & OTP Pairing -->
     <section>
-      <h2><span class="phase-badge">Phase 03</span> 60-Second Smartphone Hardware Enrollment</h2>
+      <h2><span class="phase-badge">Phase 03</span> 60-Second Hardware Unboxing, 6-Tap QR & OTP Activation</h2>
       <p>
-        Now take the customer's new, unboxed smartphone and perform the 6-tap Google DPC handshake:
+        Take the customer's brand new smartphone out of the box and execute the 6-tap Google Enterprise DPC handshake:
       </p>
 
       <div class="step-card">
         <div class="step-header">
           <div class="step-num">1</div>
-          <div class="step-title">Power On the New Smartphone</div>
+          <div class="step-title">Power On to the Android Welcome Screen</div>
         </div>
         <div class="step-desc">
-          Turn on the brand new smartphone until you reach the initial <strong>Android Welcome Screen</strong> (displaying "Start" or "Hello").
+          Turn on the smartphone until you see the initial out-of-box <strong>Welcome Screen</strong> (displaying "Start" or "Hello" with the language selector).
         </div>
       </div>
 
       <div class="step-card">
         <div class="step-header">
           <div class="step-num">2</div>
-          <div class="step-title">Tap 6 Times Anywhere on the Screen</div>
+          <div class="step-title">Where to Tap 6 Times Rapidly</div>
         </div>
         <div class="step-desc">
-          <strong>Tap 6 times rapidly on any blank white space</strong> of the welcome screen. The phone will beep and launch the built-in Android Enterprise QR scanner.
+          <strong>Tap 6 times in rapid succession anywhere on the blank white space</strong> of the welcome screen (in the center or right above the Start button).
+          <br /><br />
+          The phone will play a confirmation beep and display: <em>"Setting up QR code reader..."</em>, opening the camera scanner.
         </div>
       </div>
 
@@ -524,11 +550,12 @@
           <div class="step-title">Scan the Onboarding QR Code</div>
         </div>
         <div class="step-desc">
-          Point the phone's camera at the <strong>Onboarding QR Code</strong> on your cashier computer screen. The phone will:
-          <ul style="margin: 10px 0 10px 24px; line-height: 1.6;">
-            <li>Automatically connect to your showroom Wi-Fi.</li>
-            <li>Silently download the Instalpay Device Policy Controller (DPC).</li>
-            <li>Register its hardware IMEI with Abans Finance backend.</li>
+          Point the phone's camera at the <strong>Onboarding QR Code</strong> displayed on your cashier computer screen.
+          <br /><br />
+          <strong>How Long It Takes & Internet Speed:</strong>
+          <ul>
+            <li><strong>Standard Wi-Fi (10+ Mbps):</strong> Takes <strong>45 to 60 seconds</strong> to download the security suite.</li>
+            <li><strong>Slow Wi-Fi (&lt; 5 Mbps):</strong> May take 2 to 3 minutes. (Keep the phone near the Wi-Fi router).</li>
           </ul>
         </div>
       </div>
@@ -536,88 +563,117 @@
       <div class="step-card">
         <div class="step-header">
           <div class="step-num">4</div>
-          <div class="step-title">Complete Setup & Hand Over Device</div>
+          <div class="step-title">One-Time OTP Pairing & Silent App Hiding</div>
         </div>
         <div class="step-desc">
-          Tap <strong>Accept & Continue</strong>. The phone is now 100% active, protected against factory resets, and ready to be handed to the happy customer!
+          Once the DPC finishes downloading:
+          <ul>
+            <li>The app automatically verifies the agreement token. (If prompted, enter the 6-digit cashier OTP shown on your screen).</li>
+            <li>The phone registers its unique hardware IMEI with Abans Finance.</li>
+            <li><strong>Automatic App Hiding:</strong> The Instalpay app icon <strong>instantly hides itself from the home screen and app drawer</strong>, running silently in the background as a Google Enterprise Device Owner service.</li>
+          </ul>
         </div>
+      </div>
+
+      <!-- Security Restrictions Box -->
+      <div class="callout callout-green">
+        🛡️ <strong>What This Setup Permanently Prevents (Self-Secured Asset):</strong>
+        <ul>
+          <li><strong>Factory Reset Blocked:</strong> Users cannot wipe the phone from Settings (<span class="key-tag">DISALLOW_FACTORY_RESET</span>).</li>
+          <li><strong>Recovery Bootloader Wipe Blocked:</strong> Hard resetting via physical volume buttons triggers automatic re-lock upon first boot.</li>
+          <li><strong>Safe Mode Blocked:</strong> Security policies cannot be disabled by booting into Safe Mode.</li>
+          <li><strong>Developer Options & USB Debugging Blocked:</strong> Prevents computer hacking or ADB bypass attempts (<span class="key-tag">DISALLOW_DEBUGGING</span>).</li>
+          <li><strong>Offline Autonomy:</strong> 30-day internal cryptographic clock enforces lock even if SIM is removed and WiFi is turned off.</li>
+        </ul>
       </div>
 
       <div class="callout callout-blue">
-        📌 <strong>Pathway B (Post-Setup APK Installation):</strong> If a customer is enrolling a phone that is already turned on and configured, simply download the Instalpay APK directly from <span class="key-tag">backoffice.instalpay.lk/app</span> and activate Device Admin permissions in under 90 seconds without a factory reset.
+        📌 <strong>Pathway B (Post-Setup APK for Pre-Activated Phones):</strong><br />
+        If enrolling a customer phone that is already configured and in use, download the APK from <span class="key-tag">backoffice.instalpay.lk/app</span> and grant Device Administrator permissions in under 90 seconds without wiping user data.
       </div>
     </section>
 
-    <!-- Phase 3: Collections & Recovery -->
+    <!-- Phase 04: Emergency 48-Hr Unlock & Permanent Release -->
     <section>
-      <h2><span class="phase-badge">Phase 04</span> Payment Settlement & Sub-30s Auto-Unlock</h2>
+      <h2><span class="phase-badge">Phase 04</span> Quick 48-Hour Temporary Unlock & Permanent Release</h2>
       <p>
-        How the system handles monthly installments and ensures seamless customer satisfaction:
+        Special operational controls for customer service flexibility and final loan completion:
       </p>
 
       <div class="step-card">
         <div class="step-header">
           <div class="step-num">1</div>
-          <div class="step-title">Level 1: Gentle Reminder Alerts (App is 100% Hidden)</div>
+          <div class="step-title">How to Grant a Quick 48-Hour Emergency Unlock</div>
         </div>
         <div class="step-desc">
-          3 days before due date, the customer receives gentle notification alerts. The app remains <strong>completely hidden in the background</strong> and the phone is 100% usable.
+          <em>⚠️ Note: Only provided in Production when authorized by the showroom manager (e.g., customer promises in-person cash settlement within 48 hours or during bank gateway downtime).</em>
+          <ol style="margin-top: 8px;">
+            <li>Log into Backoffice &rarr; Open <strong>Devices</strong> &rarr; Locate Customer IMEI.</li>
+            <li>Click <strong>"Grant 48-Hour Temporary Unlock"</strong>.</li>
+            <li>The cloud sends a secure temporary token to the phone. The phone immediately unlocks for <strong>exactly 48 hours</strong>, returning to restricted mode if payment is not settled within that window.</li>
+          </ol>
         </div>
       </div>
 
       <div class="step-card">
         <div class="step-header">
           <div class="step-num">2</div>
-          <div class="step-title">Level 2: Direct Device Restriction (If Overdue)</div>
+          <div class="step-title">How to Permanently Release a Phone (Loan Completed)</div>
         </div>
         <div class="step-desc">
-          If an installment is unpaid at the cutoff, the screen temporarily locks down access and displays balance details with two instant buttons: <strong>Pay Instantly</strong> and <strong>Call Support</strong>.
-        </div>
-      </div>
-
-      <div class="step-card">
-        <div class="step-header">
-          <div class="step-num">3</div>
-          <div class="step-title">Sub-30s Instant Auto-Unlock</div>
-        </div>
-        <div class="step-desc">
-          The customer can pay via:
-          <ul style="margin: 8px 0 8px 24px; line-height: 1.6;">
-            <li><strong>Showroom Cashier POS</strong> (Cash / Debit / Credit Card)</li>
-            <li><strong>Online Payment Gateway</strong> on their locked phone</li>
-            <li><strong>LankaPay CEFT / JustPay</strong> direct bank transfer</li>
-          </ul>
-          The moment payment is confirmed, the system sends an instant webhook and <strong>the phone unlocks in under 30 seconds automatically</strong> with zero staff effort!
+          When the customer finishes their final installment (e.g. 6/12 months) or does a full early settlement:
+          <ol style="margin-top: 8px;">
+            <li>Record final payment in Backoffice &rarr; Agreement status turns to <strong>"Paid in Full / Completed"</strong>.</li>
+            <li>Click <strong>"Permanent Release / Remove Management"</strong>.</li>
+            <li>The cloud pushes an un-enrollment command &rarr; The DPC wipes all MDM restrictions &rarr; The phone becomes <strong>100% clean, independent, and permanently unmanaged</strong> for the customer!</li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <!-- Cashier Reference FAQ -->
+    <!-- Phase 05: Troubleshooting & Error Notes -->
     <section>
-      <h2><span class="phase-badge">Reference</span> Cashier Troubleshooting & Emergency FAQ</h2>
+      <h2><span class="phase-badge">Reference</span> Common Setup Errors & Cashier Troubleshooting</h2>
+      <p>Quick solutions for simple mistakes during daily showroom operations:</p>
+
       <table>
         <thead>
           <tr>
-            <th style="width: 32%;">Situation</th>
-            <th style="width: 68%;">Immediate Cashier Action</th>
+            <th style="width: 30%;">Setup Error / Issue</th>
+            <th style="width: 35%;">Root Cause</th>
+            <th style="width: 35%;">Immediate Resolution</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Phone doesn't beep after 6 taps?</strong></td>
-            <td>Make sure you are on the very first "Start/Hello" screen. Tap quickly 6 times in the middle of the screen.</td>
+            <td><strong>Phone doesn't beep after 6 taps</strong></td>
+            <td>Tapping too slowly or not on the welcome screen.</td>
+            <td>Ensure you are on the very first "Start/Hello" screen. Tap 6 times in rapid succession in the middle.</td>
           </tr>
           <tr>
-            <td><strong>Wi-Fi connection fails during QR scan?</strong></td>
-            <td>Check that your shop Wi-Fi credentials under <em>Wi-Fi Setup</em> match your router password exactly.</td>
+            <td><strong>Wi-Fi connection fails after QR scan</strong></td>
+            <td>Wrong SSID or password saved in Backoffice.</td>
+            <td>Check <em>Wi-Fi Setup</em> in Backoffice. Verify spelling and case-sensitivity against showroom router.</td>
           </tr>
           <tr>
-            <td><strong>Customer paid at counter but phone is still restricted?</strong></td>
-            <td>In Backoffice, go to <em>Devices</em>, find the customer's IMEI, and click <strong>Force Unlock / Refresh Sync</strong>.</td>
+            <td><strong>DPC download hangs or times out</strong></td>
+            <td>Weak showroom Wi-Fi signal or slow internet.</td>
+            <td>Move the device closer to the router. Ensure internet connection has at least 5 Mbps bandwidth.</td>
           </tr>
           <tr>
-            <td><strong>Customer wants to change their SIM card?</strong></td>
-            <td>The customer is completely free to use any SIM card (Dialog, Mobitel, Airtel, Hutch). Lock protection stays fully intact.</td>
+            <td><strong>Captive portal browser error</strong></td>
+            <td>Using guest Wi-Fi requiring web login.</td>
+            <td>Switch showroom Wi-Fi to a standard direct WPA2 password-protected network.</td>
+          </tr>
+          <tr>
+            <td><strong>Google Account FRP lock screen appears</strong></td>
+            <td>Phone was previously used and reset with Google account active.</td>
+            <td>Enter previous Google credentials to bypass, or use Pathway B (Post-Setup APK Installation).</td>
+          </tr>
+          <tr>
+            <td><strong>Paid at counter but phone still locked</strong></td>
+            <td>Phone was offline when payment was recorded.</td>
+            <td>Connect customer phone to Wi-Fi/Mobile Data &rarr; In Backoffice click <strong>Force Unlock Sync</strong>.</td>
           </tr>
         </tbody>
       </table>
